@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
     }, [isMobileMenuOpen]);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 p-3 sm:p-4 md:px-8 lg:px-12 md:py-5 flex justify-between items-center z-[200] bg-[#1B1B1B]/80 backdrop-blur-md">
+        <nav className="fixed top-0 left-0 right-0 p-3 sm:p-4 md:px-8 lg:px-12 md:py-5 flex justify-between items-center z-[200] bg-[#1B1B1B]">
             <Logo size="md" />
             
             {/* Desktop Navigation */}
@@ -64,20 +64,20 @@ const Navbar: React.FC = () => {
                 role="dialog"
                 aria-modal="true"
             >
-                {/* Dim backdrop */}
-                <div className="absolute inset-0 bg-black/80" />
-                {/* Slide-in drawer */}
+                {/* Dim backdrop (solid) */}
+                <div className="absolute inset-0 bg-black" />
+                {/* Slide-in drawer - white, minimal */}
                 <div 
-                    className={`absolute right-0 top-0 h-full w-4/5 max-w-[340px] bg-[#0F1C4D] border-l border-white/10 shadow-2xl
-                                rounded-l-2xl px-6 pt-5 pb-8 flex flex-col
+                    className={`absolute right-0 top-0 h-full w-4/5 max-w-[360px] bg-white border-l border-black/5 shadow-2xl
+                                rounded-l-3xl px-6 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] flex flex-col
                                 transition-transform duration-300 ease-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {/* Header with logo and close */}
-                    <div className="flex items-center justify-between mb-8">
+                    <div className="flex items-center justify-between mb-6">
                         <Logo size="sm" />
                         <button 
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-[#FAFAFA] transition-transform duration-200 active:scale-95"
+                            className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black transition-transform duration-200 active:scale-95"
                             onClick={() => setIsMobileMenuOpen(false)}
                             aria-label="Close menu"
                         >
@@ -85,18 +85,23 @@ const Navbar: React.FC = () => {
                         </button>
                     </div>
 
+                    {/* Title */}
+                    <h2 className="text-[22px] font-semibold text-black mb-4">Menu</h2>
+
                     {/* Nav links */}
-                    <ul className="flex-1 space-y-2">
+                    <ul className="flex-1 space-y-3">
                         {NAV_LINKS.map(link => (
                             <li key={link.label}>
                                 <a 
                                     href={link.href}
                                     onClick={(e) => handleLinkClick(e, link.href)}
-                                    className="group block w-full rounded-lg px-4 py-3 text-[#FAFAFA] text-base tracking-wider uppercase
-                                               hover:bg-white/5 hover:text-[#B73239] active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B73239] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0F1C4D] link-underline"
+                                    className={`group flex items-center justify-between w-full rounded-3xl border-2 px-6 py-5 text-black text-xl font-semibold tracking-wide
+                                               hover:bg-black/5 active:scale-95 transition-[transform,background,color] duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B73239] focus-visible:ring-offset-2 focus-visible:ring-offset-white
+                                               ${typeof window !== 'undefined' && window.location.hash === link.href ? 'bg-[#B73239] border-[#B73239] text-white' : 'bg-white border-black/10'}`}
                                     aria-current={typeof window !== 'undefined' && window.location.hash === link.href ? 'page' : undefined}
                                 >
-                                    <span className="inline-block group-hover:translate-x-0.5 transition-transform">{link.label}</span>
+                                    <span className="inline-block group-hover:translate-x-0.5 transition-transform uppercase">{link.label}</span>
+                                    <span className={`ml-4 text-lg transition-transform group-hover:translate-x-0.5 ${typeof window !== 'undefined' && window.location.hash === link.href ? 'text-white' : 'text-black/40'}`}>›</span>
                                 </a>
                             </li>
                         ))}
@@ -104,12 +109,12 @@ const Navbar: React.FC = () => {
 
                     {/* Footer actions */}
                     <div className="mt-8 space-y-3">
-                        <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="block text-center w-full py-3 rounded-lg bg-[#B73239] text-white uppercase tracking-wide">
+                        <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="block text-center w-full py-3 rounded-2xl bg-[#B73239] text-white uppercase tracking-wide">
                             Contact
                         </a>
-                        <div className="flex items-center justify-center gap-4 text-[#FAFAFA]/70 text-sm">
+                        <div className="flex items-center justify-center gap-4 text-black/60 text-sm">
                             <span>FR</span>
-                            <span className="opacity-50">|</span>
+                            <span className="opacity-30">|</span>
                             <span>EN</span>
                         </div>
                     </div>
