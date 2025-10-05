@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-[#1B1B1B] text-[#F5F5F5] transition-colors duration-300;
+}
+
+/* Theme transition effects */
+.theme-transition {
+  @apply transition-all duration-300;
+}
+
+/* Custom cursor styles */
+body {
+  cursor: none;
+}
+
+/* Dark mode toggle animations */
+.theme-toggle-sun {
+  @apply transition-transform duration-500;
+}
+
+.theme-toggle-moon {
+  @apply transition-transform duration-500;
+}
+
+/* Background effects */
+.bg-gradient {
+  @apply bg-gradient-to-b from-[#1B1B1B] to-[#1B1B1B]/95;
+}
+
+/* Text effects */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FFFFFF] via-[#F5F5F5] to-[#FFFFFF];
+}
+
+/* Accessibility: reduced motion disables animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Touch devices: show system cursor and hide custom cursor component */
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Link underline reveal */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 1rem; /* aligns with px-4 in link */
+  right: 1rem;
+  bottom: 0.35rem;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+  opacity: .7;
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Ripple effect for tap/click */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+.ripple-span {
+  position: absolute;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: rgba(250, 250, 250, 0.25);
+  animation: ripple-anim 600ms ease-out forwards;
+}
+@keyframes ripple-anim {
+  from { width: 0; height: 0; opacity: .6; }
+  to { width: 220px; height: 220px; opacity: 0; }
+}

@@ -1,0 +1,159 @@
+import React, { useEffect, useState } from 'react';
+import '../styles/animations.css';
+
+const LoadingScreen: React.FC = () => {
+    const [progress, setProgress] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
+    const [lettersVisible, setLettersVisible] = useState([false, false, false, false]);
+
+    useEffect(() => {
+        let currentProgress = 0;
+        const progressTimer = setInterval(() => {
+            currentProgress += 1;
+            if (currentProgress <= 100) {
+                setProgress(currentProgress);
+            } else {
+                clearInterval(progressTimer);
+                setTimeout(() => setIsLoading(false), 1000);
+            }
+        }, 50);
+
+        // Animate letters sequentially
+        const letters = ['G', 'M', 'C', 'F'];
+        letters.forEach((_, index) => {
+            setTimeout(() => {
+                setLettersVisible(prev => {
+                    const newState = [...prev];
+                    newState[index] = true;
+                    return newState;
+                });
+            }, 1000 + index * 400); // Start after 1 second, each letter 400ms after the previous
+        });
+
+        return () => clearInterval(progressTimer);
+    }, []);
+
+    if (!isLoading) return null;
+
+    return (
+        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center overflow-hidden">
+            {/* Paper texture background */}
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,#f8f8f8_25%,transparent_25%,transparent_75%,#f8f8f8_75%,#f8f8f8),linear-gradient(45deg,#f8f8f8_25%,transparent_25%,transparent_75%,#f8f8f8_75%,#f8f8f8)] bg-[length:60px_60px] bg-[position:0_0,30px_30px] opacity-5" />
+
+            <div className="relative">
+                {/* SVG Signature */}
+                <svg
+                    viewBox="0 0 800 400"
+                    className="w-[300px] md:w-[400px] h-auto"
+                    style={{
+                        filter: 'drop-shadow(0 0 10px rgba(72, 66, 60, 0.2))'
+                    }}
+                >
+                    {/* G */}
+                    <path
+                        d="M100,200 C100,140 140,100 200,100 C260,100 300,140 300,200 L300,240 L180,240 L180,200 L260,200 C260,160 230,140 200,140 C170,140 140,160 140,200 C140,240 170,260 200,260"
+                        fill="none"
+                        stroke="#48423C"
+                        strokeWidth="8"
+                        strokeLinecap="round"
+                        style={{
+                            strokeDasharray: 800,
+                            strokeDashoffset: lettersVisible[0] ? 0 : 800,
+                            transition: 'stroke-dashoffset 1.5s ease'
+                        }}
+                    />
+                    {/* M */}
+                    <path
+                        d="M340,260 L340,140 L400,220 L460,140 L460,260"
+                        fill="none"
+                        stroke="#48423C"
+                        strokeWidth="8"
+                        strokeLinecap="round"
+                        style={{
+                            strokeDasharray: 800,
+                            strokeDashoffset: lettersVisible[1] ? 0 : 800,
+                            transition: 'stroke-dashoffset 1.5s ease'
+                        }}
+                    />
+                    {/* C */}
+                    <path
+                        d="M640,200 C640,140 600,100 560,100 C520,100 480,140 480,200 C480,260 520,300 560,300 C600,300 640,260 640,200"
+                        fill="none"
+                        stroke="#48423C"
+                        strokeWidth="8"
+                        strokeLinecap="round"
+                        style={{
+                            strokeDasharray: 800,
+                            strokeDashoffset: lettersVisible[2] ? 0 : 800,
+                            transition: 'stroke-dashoffset 1.5s ease'
+                        }}
+                    />
+                    {/* F */}
+                    <path
+                        d="M680,260 L680,140 L780,140 M680,200 L740,200"
+                        fill="none"
+                        stroke="#48423C"
+                        strokeWidth="8"
+                        strokeLinecap="round"
+                        style={{
+                            strokeDasharray: 800,
+                            strokeDashoffset: lettersVisible[3] ? 0 : 800,
+                            transition: 'stroke-dashoffset 1.5s ease'
+                        }}
+                    />
+
+                    {/* Ink splatter effects */}
+                    {Array.from({ length: 8 }).map((_, i) => (
+                        <circle
+                            key={i}
+                            cx={200 + Math.cos(i * Math.PI / 4) * 20}
+                            cy={200 + Math.sin(i * Math.PI / 4) * 20}
+                            r={2 + Math.random() * 3}
+                            fill="#48423C"
+                            style={{
+                                opacity: 0.3,
+                                transform: `scale(${lettersVisible[0] ? 1 : 0})`,
+                                transition: 'transform 0.5s ease'
+                            }}
+                        />
+                    ))}
+                </svg>
+
+                {/* Progress text */}
+                <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                    <div className="mb-4 h-[2px] w-32 bg-[#48423C]/10 overflow-hidden">
+                        <div
+                            className="h-full bg-[#48423C] transition-all duration-300"
+                            style={{
+                                width: `${progress}%`,
+                                opacity: 0.3
+                            }}
+                        />
+                    </div>
+                    <div className="text-[#48423C] text-sm tracking-[0.3em] uppercase font-light">
+                        {progress < 100 ? 'Writing...' : 'Signed'}
+                    </div>
+                </div>
+
+                {/* Ink droplets */}
+                <div className="absolute inset-0 pointer-events-none">
+                    {Array.from({ length: 15 }).map((_, i) => (
+                        <div
+                            key={i}
+                            className="absolute w-1 h-1 rounded-full bg-[#48423C]"
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                opacity: 0.2,
+                                transform: `scale(${Math.random() * 0.5 + 0.5})`,
+                                animation: `droplet ${2 + Math.random() * 2}s infinite ease-in-out ${Math.random() * 2}s`
+                            }}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default LoadingScreen;
