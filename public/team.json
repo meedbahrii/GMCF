@@ -1,0 +1,78 @@
+[
+  {
+    "name": "MOHAMMED BAHRI",
+    "title": "Chief Executive Officer",
+    "personalDetail": "Visionnaire de l'innovation audiovisuelle",
+    "image": "/images/team/mohammed.jpg",
+    "imageWebp": "/images/team/mohammed.jpg",
+    "expertise": ["Leadership", "Innovation", "Stratégie"],
+    "color": "from-[#0F1C4D] to-[#5A3E85]",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/mohammed-bahri",
+      "twitter": "https://twitter.com/mohammedbahri",
+      "instagram": "https://instagram.com/mohammedbahri",
+      "facebook": "https://facebook.com/mohammed.bahri",
+      "github": "https://github.com/mohammedbahri",
+      "website": "https://mohammedbahri.com",
+      "email": "mohammed@example.com"
+    },
+    "department": "Executive",
+    "featured": true,
+    "location": "Casablanca, MA",
+    "languages": ["fr", "ar", "en"]
+  },
+  {
+    "name": "SARAH LAMBERT",
+    "title": "Chief Financial Officer",
+    "personalDetail": "Passionnée de cinéma et de finance",
+    "image": "/images/team/mohammed.jpg",
+    "imageWebp": "/images/team/mohammed.jpg",
+    "expertise": ["Finance", "Cinéma", "Management"],
+    "color": "from-[#B73239] to-[#E67E22]",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/sarah-lambert",
+      "twitter": "https://twitter.com/sarahlambert",
+      "email": "sarah@example.com"
+    },
+    "department": "Executive",
+    "featured": false,
+    "location": "Casablanca, MA",
+    "languages": ["fr", "en"]
+  },
+  {
+    "name": "JEAN DUPONT",
+    "title": "Chief Technology Officer",
+    "personalDetail": "Expert en technologies de pointe",
+    "image": "/images/team/mohammed.jpg",
+    "imageWebp": "/images/team/mohammed.jpg",
+    "expertise": ["Technologie", "Innovation", "Développement"],
+    "color": "from-[#0F7156] to-[#C9A227]",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/jean-dupont",
+      "email": "jean@example.com"
+    },
+    "department": "Technology",
+    "featured": true,
+    "location": "Casablanca, MA",
+    "languages": ["fr", "en"]
+  },
+  {
+    "name": "MARIE CHEN",
+    "title": "Chief Design Officer",
+    "personalDetail": "Créatrice d'expériences visuelles",
+    "image": "/images/team/mohammed.jpg",
+    "imageWebp": "/images/team/mohammed.jpg",
+    "expertise": ["Design", "Créativité", "UX/UI"],
+    "color": "from-[#5A3E85] to-[#B73239]",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/marie-chen",
+      "twitter": "https://twitter.com/mariechen",
+      "email": "marie@example.com"
+    },
+    "department": "Design",
+    "featured": false,
+    "location": "Casablanca, MA",
+    "languages": ["fr", "en"]
+  }
+]
+

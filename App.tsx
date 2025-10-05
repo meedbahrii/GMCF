@@ -7,6 +7,7 @@ import Exhibitions from './components/Exhibitions';
 import About from './components/About';
 import Team from './components/Team';
 import Footer from './components/Footer';
+import ContactUs from './components/ContactUs';
 import LoadingScreen from './components/LoadingScreen';
 import SEO from './components/SEO';
 
@@ -165,7 +166,7 @@ const App: React.FC = () => {
                 <div ref={sectionRefs.formation} id="formation"><Exhibitions /></div>
                 <div ref={sectionRefs.about} id="about"><About /></div>
                 <div ref={sectionRefs.team} id="team"><Team /></div>
-                <div ref={sectionRefs.contact} id="contact"><Footer /></div>
+                <div ref={sectionRefs.contact} id="contact"><ContactUs /><Footer /></div>
             </main>
         </div>
     );
