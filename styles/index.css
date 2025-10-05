@@ -6,9 +6,10 @@
   color-scheme: light dark;
 }
 
-body {
-  @apply bg-[#1B1B1B] text-[#F5F5F5] transition-colors duration-300;
-}
+/* Theme tokens using [data-theme] on <html> */
+html[data-theme='dark'] body { @apply bg-[#1B1B1B] text-[#F5F5F5]; }
+html[data-theme='light'] body { @apply bg-[#FAFAFA] text-[#0d0f12]; }
+body { @apply transition-colors duration-300; }
 /* GMCF Loading font utility */
 .font-gmc {
   font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;

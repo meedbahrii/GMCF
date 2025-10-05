@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NAV_LINKS } from '../constants';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,7 +32,7 @@ const Navbar: React.FC = () => {
             <Logo size="md" />
             
             {/* Desktop Navigation */}
-            <ul className="hidden md:flex gap-6 lg:gap-8 xl:gap-10 list-none">
+            <ul className="hidden md:flex gap-6 lg:gap-8 xl:gap-10 list-none items-center">
                 {NAV_LINKS.map(link => (
                     <li key={link.label}>
                         <a 
@@ -43,6 +44,9 @@ const Navbar: React.FC = () => {
                         </a>
                     </li>
                 ))}
+                <li>
+                    <ThemeToggle />
+                </li>
             </ul>
 
             {/* Mobile Menu Button */}
