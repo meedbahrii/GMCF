@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Logo from './Logo';
 
 interface LoadingScreenProps {
   onComplete: () => void;
@@ -25,20 +24,17 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({
 
   return (
     <div className={`fixed inset-0 z-50 bg-[#1B1B1B] flex items-center justify-center transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      <div className="text-center">
-        <div className="mb-8">
-          <Logo size="xl" />
+      <div className="w-full max-w-sm px-8">
+        {/* GMCF wordmark with staggered rise */}
+        <div className="text-center mb-6 select-none">
+          <div className="font-gmc text-[40px] xs:text-[44px] sm:text-[48px] leading-none font-extrabold tracking-wider">
+            <span className="loading-stagger text-[#FAFAFA]"><span>G</span><span>M</span><span>C</span><span>F</span></span>
+          </div>
         </div>
-        
-        {/* Simple Loading Animation */}
-        <div className="flex justify-center space-x-1">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={i}
-              className="w-2 h-2 bg-[#B73239] rounded-full animate-[bounce_1.4s_infinite]"
-              style={{ animationDelay: `${i * 0.2}s` }}
-            />
-          ))}
+
+        {/* Progress bar sweep */}
+        <div className="loading-bar bg-white/10">
+          {/* animated track is via ::before in CSS */}
         </div>
       </div>
     </div>
