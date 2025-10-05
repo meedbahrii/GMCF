@@ -59,19 +59,32 @@ const Team = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 gap-4 md:gap-5 max-w-5xl mx-auto">
           {list.map((m) => (
-            <article key={m.name} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
-              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border border-white/15 mb-4">
-                <img src={m.image} alt={m.name} className="w-full h-full object-cover object-center" loading="lazy" />
+            <article key={m.name} className="relative rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+              {/* gradient hairline */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl" style={{ padding: 1 as any }}>
+                <div className="absolute inset-0 rounded-[14px] opacity-20 bg-[linear-gradient(90deg,rgba(183,50,57,.6),rgba(15,113,86,.6))]"></div>
               </div>
-              <h3 className="text-white font-semibold">{m.name}</h3>
-              <p className="text-white/70 text-sm">{m.title}</p>
-              <p className="text-white/60 text-xs mt-2">{m.personalDetail}</p>
-              <div className="mt-3 flex flex-wrap justify-center gap-2">
-                {m.expertise?.slice(0,3).map(tag => (
-                  <span key={tag} className="px-2 py-1 text-[11px] rounded-full border border-white/10 text-white/80">{tag}</span>
-                ))}
+
+              <div className="flex items-center gap-4 md:gap-6">
+                <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border border-white/15 bg-black/20">
+                  <img src={m.image} alt={m.name} className="w-full h-full object-cover object-center" loading="lazy" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <h3 className="text-white font-semibold text-base md:text-lg truncate">{m.name}</h3>
+                    <span className="text-[11px] md:text-xs text-white/60">{m.title}</span>
+                  </div>
+                  <p className="mt-1 text-xs md:text-sm text-white/70 line-clamp-2">{m.personalDetail}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {m.expertise?.slice(0,4).map(tag => (
+                      <span key={tag} className="px-2 py-1 text-[10px] md:text-[11px] rounded-full border border-white/10 text-white/80 bg-white/5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </article>
           ))}
