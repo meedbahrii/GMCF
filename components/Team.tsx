@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaLinkedinIn, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { useOnScreen } from '../hooks/useOnScreen';
 
 interface SocialLinks {
@@ -59,33 +60,58 @@ const Team = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:gap-5 max-w-5xl mx-auto">
-          {list.map((m) => (
-            <article key={m.name} className="relative rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
-              {/* gradient hairline */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl" style={{ padding: 1 as any }}>
-                <div className="absolute inset-0 rounded-[14px] opacity-20 bg-[linear-gradient(90deg,rgba(183,50,57,.6),rgba(15,113,86,.6))]"></div>
-              </div>
-
-              <div className="flex items-center gap-4 md:gap-6">
-                <div className="shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border border-white/15 bg-black/20">
-                  <img src={m.image} alt={m.name} className="w-full h-full object-cover object-center" loading="lazy" />
+        <div className="max-w-5xl mx-auto">
+          {list.map((m, idx) => (
+            <article key={m.name} className="py-6">
+              <div className="grid grid-cols-[32px_1fr_96px] items-center gap-4 md:gap-6">
+                {/* left socials (vertical) */}
+                <div className="flex flex-col items-center gap-3 text-white/60">
+                  {m.socials.linkedin ? (
+                    <a href={m.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white">
+                      <FaLinkedinIn size={14} />
+                    </a>
+                  ) : null}
+                  {m.socials.twitter ? (
+                    <a href={m.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-white">
+                      <FaTwitter size={14} />
+                    </a>
+                  ) : null}
+                  {m.socials.instagram ? (
+                    <a href={m.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white">
+                      <FaInstagram size={14} />
+                    </a>
+                  ) : null}
+                  {m.socials.email ? (
+                    <a href={`mailto:${m.socials.email}`} className="hover:text-white" aria-label="Email">
+                      <FaEnvelope size={14} />
+                    </a>
+                  ) : null}
                 </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h3 className="text-white font-semibold text-base md:text-lg truncate">{m.name}</h3>
-                    <span className="text-[11px] md:text-xs text-white/60">{m.title}</span>
-                  </div>
-                  <p className="mt-1 text-xs md:text-sm text-white/70 line-clamp-2">{m.personalDetail}</p>
+
+                {/* content */}
+                <div>
+                  <h3 className="text-white font-semibold text-base md:text-lg">{m.name}</h3>
+                  <div className="text-[11px] md:text-xs text-white/60">{m.title}</div>
+                  <p className="mt-2 text-xs md:text-sm text-white/70 max-w-2xl">{m.personalDetail}</p>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {m.expertise?.slice(0,4).map(tag => (
-                      <span key={tag} className="px-2 py-1 text-[10px] md:text-[11px] rounded-full border border-white/10 text-white/80 bg-white/5">
+                      <span key={tag} className="px-2 py-1 text-[10px] md:text-[11px] rounded-full border border-white/10 text-white/80">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
+
+                {/* right avatar */}
+                <div className="justify-self-end w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-white/15 bg-black/20">
+                  <img src={m.image} alt={m.name} className="w-full h-full object-cover object-center" loading="lazy" />
+                </div>
               </div>
+
+              {/* divider */}
+              {idx !== list.length - 1 ? (
+                <div className="mt-6 h-px w-full bg-white/10" />
+              ) : null}
             </article>
           ))}
         </div>
