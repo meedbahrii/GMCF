@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useMousePosition } from './hooks/useMousePosition';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Collections from './components/Collections';
-import Exhibitions from './components/Exhibitions';
-import About from './components/About';
-import Team from './components/Team';
-import Footer from './components/Footer';
+const Collections = React.lazy(() => import('./components/Collections'));
+const Exhibitions = React.lazy(() => import('./components/Exhibitions'));
+const About = React.lazy(() => import('./components/About'));
+const Team = React.lazy(() => import('./components/Team'));
+const Footer = React.lazy(() => import('./components/Footer'));
 import ContactUs from './components/ContactUs';
 import LoadingScreen from './components/LoadingScreen';
 import SEO from './components/SEO';
@@ -138,6 +138,23 @@ const App: React.FC = () => {
     }, [handleScroll]);
 
     const [isLoading, setIsLoading] = useState(true);
+    const [isFinePointer, setIsFinePointer] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === 'undefined' || typeof window.matchMedia === 'undefined') return;
+        const fine = window.matchMedia('(any-pointer: fine)');
+        const hover = window.matchMedia('(hover: hover)');
+        const update = () => setIsFinePointer(fine.matches && hover.matches);
+        update();
+        const onFine = (e: MediaQueryListEvent) => setIsFinePointer(e.matches && hover.matches);
+        const onHover = (e: MediaQueryListEvent) => setIsFinePointer(fine.matches && e.matches);
+        fine.addEventListener('change', onFine);
+        hover.addEventListener('change', onHover);
+        return () => {
+            fine.removeEventListener('change', onFine);
+            hover.removeEventListener('change', onHover);
+        };
+    }, []);
 
     if (isLoading) {
         return <LoadingScreen onComplete={() => setIsLoading(false)} />;
@@ -151,8 +168,8 @@ const App: React.FC = () => {
                 keywords="audiovisuel maroc, production virtuelle, LED Wall, VFX, post-production, formation PIXELLAB, cinéma marocain, technologies audiovisuelles, GMCF"
                 url="https://gmcf.ma"
             />
-            {/* Hide cursor visually on touch via CSS class */}
-            <div className="custom-cursor"><CustomCursor /></div>
+            {/* Render custom cursor only on fine pointer devices */}
+            {isFinePointer && <div className="custom-cursor"><CustomCursor /></div>}
             <Navbar />
             <SideNav activeSection={activeSection} sections={sideNavSections} />
             {/* Top scroll progress bar */}
@@ -162,11 +179,13 @@ const App: React.FC = () => {
             
             <main>
                 <div ref={sectionRefs.hero} id="hero"><Hero /></div>
-                <div ref={sectionRefs.services} id="services"><Collections /></div>
-                <div ref={sectionRefs.formation} id="formation"><Exhibitions /></div>
-                <div ref={sectionRefs.about} id="about"><About /></div>
-                <div ref={sectionRefs.team} id="team"><Team /></div>
-                <div ref={sectionRefs.contact} id="contact"><ContactUs /><Footer /></div>
+                <React.Suspense fallback={<div className="p-8"><div className="animate-pulse h-6 w-40 bg-white/10 rounded" /></div>}>
+                    <div ref={sectionRefs.services} id="services"><Collections /></div>
+                    <div ref={sectionRefs.formation} id="formation"><Exhibitions /></div>
+                    <div ref={sectionRefs.about} id="about"><About /></div>
+                    <div ref={sectionRefs.team} id="team"><Team /></div>
+                    <div ref={sectionRefs.contact} id="contact"><ContactUs /><Footer /></div>
+                </React.Suspense>
             </main>
         </div>
     );

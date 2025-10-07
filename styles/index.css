@@ -62,8 +62,9 @@ body { @apply transition-colors duration-300; }
 }
 
 /* Custom cursor styles */
-body {
-  cursor: none;
+/* Only hide system cursor on fine pointers */
+@media (any-pointer: fine) and (hover: hover) {
+  body { cursor: none; }
 }
 
 /* Dark mode toggle animations */
@@ -95,7 +96,7 @@ body {
 }
 
 /* Touch devices: show system cursor and hide custom cursor component */
-@media (pointer: coarse) {
+@media (pointer: coarse), (hover: none) {
   body {
     cursor: auto;
   }

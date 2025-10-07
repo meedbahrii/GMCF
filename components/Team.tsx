@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { FaLinkedinIn, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useOnScreen } from '../hooks/useOnScreen';
 
 interface SocialLinks {
@@ -21,100 +21,150 @@ interface TeamMember {
   socials: SocialLinks;
   expertise: string[];
   color: string;
+  featured?: boolean;
 }
 
-// Data will be fetched from /team.json
 const teamMembers: TeamMember[] = [];
 
-const Team = () => {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const isVisible = useOnScreen(ref, '-100px');
+// Returns acronym with dots from a full title, e.g. "Chief Executive Officer" -> "C.E.O"
+const getAcronymWithDots = (title: string): string => {
+  if (!title) return '';
+  const letters = title
+    .replace(/[^a-zA-Z\s]/g, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w[0]!.toUpperCase());
+  return letters.join('.');
+};
 
+const Team: React.FC = () => {
+  const headerRef = useRef<HTMLDivElement>(null);
+  const headerVisible = useOnScreen(headerRef, '-100px');
   const [members, setMembers] = useState<TeamMember[]>([]);
 
   useEffect(() => {
     let mounted = true;
     fetch('/team.json')
-      .then(r => r.json())
-      .then((data: TeamMember[]) => { if (mounted) setMembers(data); })
+      .then((r) => r.json())
+      .then((data: TeamMember[]) => {
+        if (mounted) setMembers(data);
+      })
       .catch(() => {});
-    return () => { mounted = false; };
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  const list = members;
+  // Preload first two images for better LCP
+  useEffect(() => {
+    const links: HTMLLinkElement[] = [];
+    members.slice(0, 2).forEach((m) => {
+      const l = document.createElement('link');
+      l.rel = 'preload';
+      l.as = 'image';
+      l.href = m.imageWebp || m.image;
+      document.head.appendChild(l);
+      links.push(l);
+    });
+    return () => {
+      links.forEach((l) => l.parentElement?.removeChild(l));
+    };
+  }, [members]);
 
   return (
-    <section className="py-20 md:py-28 px-4 md:px-5 lg:px-12 bg-[#1B1B1B]" aria-labelledby="team-title">
-
-      <div className="container mx-auto max-w-6xl relative z-10">
-        {/* Section Header */}
-        <div 
-          ref={ref} 
-          className={`mb-12 md:mb-16 transition-all duration-1000 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+    <section className="py-16 md:py-24 px-4 md:px-6 lg:px-12 bg-[#0d0d0d]" aria-labelledby="team-title">
+      <div className="relative max-w-6xl mx-auto">
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className={`mb-14 md:mb-20 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
           }`}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <h2 id="team-title" className="text-xl md:text-2xl font-mono text-white tracking-widest">03. Notre équipe</h2>
-            <div className="h-px w-16 bg-white/20" />
+          <div className="flex items-center gap-3">
+            <span className="font-mono tracking-[0.25em] text-[#666] text-lg">03.</span>
+            <h2
+              id="team-title"
+              className="font-mono text-white text-[32px] sm:text-[40px] md:text-[48px] tracking-[0.02em]"
+            >
+              Our Teams
+            </h2>
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          {list.map((m, idx) => (
-            <article key={m.name} className="py-6">
-              <div className="grid grid-cols-[32px_1fr_96px] items-center gap-4 md:gap-6">
-                {/* left socials (vertical) */}
-                <div className="flex flex-col items-center gap-3 text-white/60">
-                  {m.socials.linkedin ? (
-                    <a href={m.socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-white">
-                      <FaLinkedinIn size={14} />
-                    </a>
-                  ) : null}
-                  {m.socials.twitter ? (
-                    <a href={m.socials.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-white">
-                      <FaTwitter size={14} />
-                    </a>
-                  ) : null}
-                  {m.socials.instagram ? (
-                    <a href={m.socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white">
-                      <FaInstagram size={14} />
-                    </a>
-                  ) : null}
-                  {m.socials.email ? (
-                    <a href={`mailto:${m.socials.email}`} className="hover:text-white" aria-label="Email">
-                      <FaEnvelope size={14} />
-                    </a>
-                  ) : null}
-                </div>
-
-                {/* content */}
-                <div>
-                  <h3 className="text-white font-semibold text-base md:text-lg">{m.name}</h3>
-                  <div className="text-[11px] md:text-xs text-white/60">{m.title}</div>
-                  <p className="mt-2 text-xs md:text-sm text-white/70 max-w-2xl">{m.personalDetail}</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {m.expertise?.slice(0,4).map(tag => (
-                      <span key={tag} className="px-2 py-1 text-[10px] md:text-[11px] rounded-full border border-white/10 text-white/80">
-                        {tag}
-                      </span>
-                    ))}
+        {/* Two-column grid */}
+        <motion.div
+          className="flex flex-col"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={{
+            hidden: {},
+            show: {
+              transition: { staggerChildren: 0.12 }
+            }
+          }}
+        >
+          {members.map((m, idx) => {
+            const isLeft = idx % 2 === 0; // image on left for even rows
+            return (
+            <motion.article
+              key={m.name}
+              className={`group relative py-10 ${idx !== members.length - 1 ? 'border-b border-white/10' : ''}`}
+              variants={{
+                hidden: { opacity: 0, y: 12 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+              }}
+              whileHover={{ y: -2 }}
+              transition={{ type: 'spring', stiffness: 280, damping: 24 }}
+              tabIndex={0}
+            >
+              <motion.div
+                className={`flex items-center gap-6 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col md:flex-row`}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: '-120px' }}
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.08 } }
+                }}
+              > 
+                {/* Portrait */}
+                <motion.div className="relative shrink-0" whileHover={{ y: -2, scale: 1.02 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
+                  <div className={`relative w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] rounded-full overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.35)] ring-2 ${m.featured ? 'ring-[#00e091]/40' : 'ring-white/10'} bg-[#111]`}> 
+                    <picture>
+                      {m.imageWebp && <source srcSet={m.imageWebp} type="image/webp" />}
+                      <img src={m.image} alt={m.name} className="w-full h-full object-cover grayscale" loading="lazy" />
+                    </picture>
                   </div>
-                </div>
+                  {/* Social icons stack */}
+                  <motion.div className={`hidden md:flex absolute top-1/2 -translate-y-1/2 ${isLeft ? '-left-10' : '-right-10'} flex-col items-center gap-3 text-[#7ddac0]`}
+                    initial={{ opacity: 0, x: isLeft ? -6 : 6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.25, duration: 0.4 }}
+                  >
+                    {/* bullets rendered based on available socials */}
+                    <span className="w-2 h-2 rounded-full bg-[#00e091] opacity-70" />
+                    <span className="w-2 h-2 rounded-full bg-[#00e091] opacity-70" />
+                    <span className="w-2 h-2 rounded-full bg-[#00e091] opacity-70" />
+                  </motion.div>
+                </motion.div>
 
-                {/* right avatar */}
-                <div className="justify-self-end w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-white/15 bg-black/20">
-                  <img src={m.image} alt={m.name} className="w-full h-full object-cover object-center" loading="lazy" />
-                </div>
-              </div>
-
-              {/* divider */}
-              {idx !== list.length - 1 ? (
-                <div className="mt-6 h-px w-full bg-white/10" />
-              ) : null}
-            </article>
-          ))}
-        </div>
+                {/* Text */}
+                <motion.div className="min-w-0 text-[#e5e7eb] outline-none focus-visible:ring-2 focus-visible:ring-[#00e091]/20 rounded-sm" variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
+                  <motion.h3 className="text-[12px] tracking-[0.2em] text-[#9ca3af] uppercase font-mono" variants={{ hidden: { opacity: 0, y: 6 }, show: { opacity: 1, y: 0 } }}>{getAcronymWithDots(m.title)}</motion.h3>
+                  <motion.div className="mt-1 flex items-center justify-between" variants={{ hidden: { opacity: 0, y: 6 }, show: { opacity: 1, y: 0 } }}>
+                    <p className="text-[22px] sm:text-[24px] font-mono text-white">{m.name}</p>
+                  </motion.div>
+                  <motion.p className="mt-3 text-[13px] leading-relaxed text-[#c5c7cb] max-w-[56ch]" variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}>{m.personalDetail}</motion.p>
+                </motion.div>
+              </motion.div>
+              {idx !== members.length - 1 && (
+                <motion.div className="mt-8 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true, amount: 0.6 }} transition={{ duration: 0.6, ease: 'easeOut' }} style={{ transformOrigin: 'center' }} />
+              )}
+            </motion.article>
+          );})}
+        </motion.div>
       </div>
     </section>
   );
