@@ -100,7 +100,7 @@ const Team: React.FC = () => {
         </div>
 
         {/* Grid of cyberpunk cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-x-8 md:gap-y-16 justify-items-center">
           {members.map((m, i) => {
             const links: Array<{platform: 'github' | 'linkedin' | 'twitter', url: string}> = [];
             if (m.socials?.github) links.push({ platform: 'github', url: m.socials.github });

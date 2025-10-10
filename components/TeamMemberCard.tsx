@@ -89,7 +89,7 @@ export const TeamMemberCard: React.FC<TeamMember> = ({ name, description, role, 
   };
 
   return (
-    <div className="w-full max-w-xs group">
+    <div className="w-full max-w-xs sm:max-w-sm group">
       <div className="relative p-2 border border-gray-700/50 w-full bg-black">
         {/* Corner Brackets */}
         <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-gray-600 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
@@ -106,7 +106,7 @@ export const TeamMemberCard: React.FC<TeamMember> = ({ name, description, role, 
                 />
             </div>
           <div className="pt-4 px-2 pb-1 text-left w-full">
-            <h3 className="text-xl font-bold tracking-widest text-gray-200 uppercase">{name}</h3>
+            <h3 className="text-lg sm:text-xl font-bold tracking-widest text-gray-200 uppercase">{name}</h3>
             <div className="flex items-center space-x-2 mt-1">
                  <p className="text-sm text-gray-400 flex-grow h-8">
                     {isAiBioVisible ? aiBio : description}
@@ -122,7 +122,7 @@ export const TeamMemberCard: React.FC<TeamMember> = ({ name, description, role, 
             </div>
             <p className="text-sm font-semibold text-cyan-400 mt-1 tracking-wider">[{role}]</p>
             
-            <div className="flex items-center space-x-4 mt-3">
+            <div className="flex items-center space-x-3 sm:space-x-4 mt-3">
               {socialLinks.map((link) => (
                 <div key={link.platform} className="relative flex flex-col items-center group/tooltip">
                   <a
