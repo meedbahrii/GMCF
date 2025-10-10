@@ -64,7 +64,7 @@ export const FOOTER_SECTIONS = [
             { href: '#services', label: 'Services' },
             { href: '#formation', label: 'Formation' },
             { href: '#about', label: 'À Propos' },
-            { href: '#', label: 'Carrières' },
+            { href: 'https://www.linkedin.com/company/gmcf-group/people/', label: 'Carrières' },
         ],
     },
     {
@@ -72,6 +72,7 @@ export const FOOTER_SECTIONS = [
         links: [
             { href: 'tel:+212000000000', label: '+212 (0) 00 00 00 00' },
             { href: 'mailto:contact@gmcf.ma', label: 'contact@gmcf.ma' },
+            { href: 'https://www.linkedin.com/company/gmcf-group/people/', label: 'LinkedIn (GMCF Group)' },
         ],
         content: ['Suivez-nous sur les réseaux sociaux pour découvrir nos dernières créations.'],
     },

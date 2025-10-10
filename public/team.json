@@ -22,57 +22,58 @@
     "languages": ["fr", "ar", "en"]
   },
   {
-    "name": "SARAH LAMBERT",
-    "title": "Chief Financial Officer",
-    "personalDetail": "Passionnée de cinéma et de finance",
-    "image": "/images/team/mohammed.jpg",
-    "imageWebp": "/images/team/mohammed.jpg",
-    "expertise": ["Finance", "Cinéma", "Management"],
-    "color": "from-[#B73239] to-[#E67E22]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/sarah-lambert",
-      "twitter": "https://twitter.com/sarahlambert",
-      "email": "sarah@example.com"
-    },
-    "department": "Executive",
-    "featured": false,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "en"]
-  },
-  {
-    "name": "JEAN DUPONT",
-    "title": "Chief Technology Officer",
-    "personalDetail": "Expert en technologies de pointe",
-    "image": "/images/team/mohammed.jpg",
-    "imageWebp": "/images/team/mohammed.jpg",
-    "expertise": ["Technologie", "Innovation", "Développement"],
+    "name": "RIDA EL BANI",
+    "title": "Directeur département 3D et VFX",
+    "personalDetail": "Expert en effets visuels et animation 3D",
+    "image": "https://media.licdn.com/dms/image/v2/D4D03AQFkD1YZfLVZLw/profile-displayphoto-scale_100_100/B4DZlFill.GkAc-/0/1757808323347?e=1762992000&v=beta&t=xmV3pzd-VxYFgbneJT1FUTV2efJa1BZFXAKVunmSJ9A",
+    "imageWebp": "https://media.licdn.com/dms/image/v2/D4D03AQFkD1YZfLVZLw/profile-displayphoto-scale_100_100/B4DZlFill.GkAc-/0/1757808323347?e=1762992000&v=beta&t=xmV3pzd-VxYFgbneJT1FUTV2efJa1BZFXAKVunmSJ9A",
+    "expertise": ["3D", "VFX", "Animation", "Post-production"],
     "color": "from-[#0F7156] to-[#C9A227]",
     "socials": {
-      "linkedin": "https://linkedin.com/in/jean-dupont",
-      "email": "jean@example.com"
+      "linkedin": "https://linkedin.com/in/rida-el-bani",
+      "twitter": "https://twitter.com/ridaelbani",
+      "email": "rida@gmcf.ma"
     },
-    "department": "Technology",
+    "department": "3D & VFX",
     "featured": true,
     "location": "Casablanca, MA",
-    "languages": ["fr", "en"]
+    "languages": ["fr", "ar", "en"]
   },
   {
-    "name": "MARIE CHEN",
-    "title": "Chief Design Officer",
-    "personalDetail": "Créatrice d'expériences visuelles",
-    "image": "/images/team/mohammed.jpg",
-    "imageWebp": "/images/team/mohammed.jpg",
-    "expertise": ["Design", "Créativité", "UX/UI"],
+    "name": "ADAM ENNIUOR",
+    "title": "Fondateur de GMCF",
+    "personalDetail": "Pionnier de l'audiovisuel marocain",
+    "image": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
+    "imageWebp": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
+    "expertise": ["Leadership", "Innovation", "Entrepreneuriat"],
+    "color": "from-[#B73239] to-[#E67E22]",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/adam-enniuor",
+      "twitter": "https://twitter.com/adamenniuor",
+      "email": "adam@gmcf.ma"
+    },
+    "department": "Executive",
+    "featured": true,
+    "location": "Casablanca, MA",
+    "languages": ["fr", "ar", "en"]
+  },
+  {
+    "name": "EZZAIBI ANOUAR",
+    "title": "Directeur département d'art physique",
+    "personalDetail": "Maître de l'art physique et de la création",
+    "image": "https://media.licdn.com/dms/image/v2/D4D03AQFpaBnYs7slxg/profile-displayphoto-shrink_100_100/B4DZlicIrJJMAU-/0/1758293168133?e=1762992000&v=beta&t=8Ig_z00r0t9KzScr0rYtw8k2UToDsZBAzwhDQC4QGnE",
+    "imageWebp": "https://media.licdn.com/dms/image/v2/D4D03AQFpaBnYs7slxg/profile-displayphoto-shrink_100_100/B4DZlicIrJJMAU-/0/1758293168133?e=1762992000&v=beta&t=8Ig_z00r0t9KzScr0rYtw8k2UToDsZBAzwhDQC4QGnE",
+    "expertise": ["Art physique", "Création", "Direction artistique"],
     "color": "from-[#5A3E85] to-[#B73239]",
     "socials": {
-      "linkedin": "https://linkedin.com/in/marie-chen",
-      "twitter": "https://twitter.com/mariechen",
-      "email": "marie@example.com"
+      "linkedin": "https://linkedin.com/in/ezzaibi-anouar",
+      "twitter": "https://twitter.com/ezzaibianouar",
+      "email": "anouar@gmcf.ma"
     },
-    "department": "Design",
-    "featured": false,
+    "department": "Art Physique",
+    "featured": true,
     "location": "Casablanca, MA",
-    "languages": ["fr", "en"]
+    "languages": ["fr", "ar", "en"]
   }
 ]
 
