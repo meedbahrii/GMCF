@@ -98,11 +98,11 @@ export const TeamMemberCard: React.FC<TeamMember> = ({ name, description, role, 
         <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-gray-600 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
         
         <div className="relative z-10">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden h-64">
                 <img
                   src={imageUrl}
                   alt={name}
-                  className="w-full h-64 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-105"
                 />
             </div>
           <div className="pt-4 px-2 pb-1 text-left w-full">
