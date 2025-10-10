@@ -1,7 +1,25 @@
 [
   {
+    "name": "ADAM ENNIUOR",
+    "title": "Fondateur",
+    "personalDetail": "Pionnier de l'audiovisuel marocain",
+    "image": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
+    "imageWebp": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
+    "expertise": ["Leadership", "Innovation", "Entrepreneuriat"],
+    "color": "from-[#B73239] to-[#E67E22]",
+    "socials": {
+      "linkedin": "https://linkedin.com/in/adam-enniuor",
+      "twitter": "https://twitter.com/adamenniuor",
+      "email": "adam@gmcf.ma"
+    },
+    "department": "Executive",
+    "featured": true,
+    "location": "Casablanca, MA",
+    "languages": ["fr", "ar", "en"]
+  },
+  {
     "name": "MOHAMMED BAHRI",
-    "title": "Chief Executive Officer",
+    "title": "Chief Technology Officer",
     "personalDetail": "Visionnaire de l'innovation audiovisuelle",
     "image": "/images/team/mohammed.jpg",
     "imageWebp": "/images/team/mohammed.jpg",
@@ -23,7 +41,7 @@
   },
   {
     "name": "RIDA EL BANI",
-    "title": "Directeur département 3D et VFX",
+    "title": "Directeur 3D et VFX",
     "personalDetail": "Expert en effets visuels et animation 3D",
     "image": "https://media.licdn.com/dms/image/v2/D4D03AQFkD1YZfLVZLw/profile-displayphoto-scale_100_100/B4DZlFill.GkAc-/0/1757808323347?e=1762992000&v=beta&t=xmV3pzd-VxYFgbneJT1FUTV2efJa1BZFXAKVunmSJ9A",
     "imageWebp": "https://media.licdn.com/dms/image/v2/D4D03AQFkD1YZfLVZLw/profile-displayphoto-scale_100_100/B4DZlFill.GkAc-/0/1757808323347?e=1762992000&v=beta&t=xmV3pzd-VxYFgbneJT1FUTV2efJa1BZFXAKVunmSJ9A",
@@ -40,26 +58,8 @@
     "languages": ["fr", "ar", "en"]
   },
   {
-    "name": "ADAM ENNIUOR",
-    "title": "Fondateur de GMCF",
-    "personalDetail": "Pionnier de l'audiovisuel marocain",
-    "image": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
-    "imageWebp": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
-    "expertise": ["Leadership", "Innovation", "Entrepreneuriat"],
-    "color": "from-[#B73239] to-[#E67E22]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/adam-enniuor",
-      "twitter": "https://twitter.com/adamenniuor",
-      "email": "adam@gmcf.ma"
-    },
-    "department": "Executive",
-    "featured": true,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
     "name": "EZZAIBI ANOUAR",
-    "title": "Directeur département d'art physique",
+    "title": "Directeur Art Physique",
     "personalDetail": "Maître de l'art physique et de la création",
     "image": "https://media.licdn.com/dms/image/v2/D4D03AQFpaBnYs7slxg/profile-displayphoto-shrink_100_100/B4DZlicIrJJMAU-/0/1758293168133?e=1762992000&v=beta&t=8Ig_z00r0t9KzScr0rYtw8k2UToDsZBAzwhDQC4QGnE",
     "imageWebp": "https://media.licdn.com/dms/image/v2/D4D03AQFpaBnYs7slxg/profile-displayphoto-shrink_100_100/B4DZlicIrJJMAU-/0/1758293168133?e=1762992000&v=beta&t=8Ig_z00r0t9KzScr0rYtw8k2UToDsZBAzwhDQC4QGnE",
