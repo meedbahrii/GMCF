@@ -74,7 +74,7 @@ const Team: React.FC = () => {
 
   return (
     <motion.section
-      className="py-16 md:py-24 px-4 md:px-6 lg:px-12 bg-[#0d0d0d]"
+      className="py-16 md:py-24 px-4 md:px-6 lg:px-12 bg-[#0d0d0d] dark:bg-[#0d0d0d] light:bg-[#FAFAFA]"
       aria-labelledby="team-title"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -89,10 +89,10 @@ const Team: React.FC = () => {
           }`}
         >
           <div className="flex items-center gap-3">
-            <span className="font-mono tracking-[0.25em] text-[#666] text-lg">03.</span>
+            <span className="font-mono tracking-[0.25em] text-[#666] dark:text-[#666] light:text-[#999] text-lg">03.</span>
             <h2
               id="team-title"
-              className="font-mono text-white text-[32px] sm:text-[40px] md:text-[48px] tracking-[0.02em]"
+              className="font-mono text-white dark:text-white light:text-[#0d0f12] text-[32px] sm:text-[40px] md:text-[48px] tracking-[0.02em]"
             >
               Our Teams
             </h2>
@@ -100,7 +100,7 @@ const Team: React.FC = () => {
         </div>
 
         {/* Grid of cyberpunk cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-x-8 md:gap-y-16 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-x-8 lg:gap-y-16 justify-items-center">
           {members.map((m, i) => {
             const links: Array<{platform: 'github' | 'linkedin' | 'twitter', url: string}> = [];
             if (m.socials?.github) links.push({ platform: 'github', url: m.socials.github });

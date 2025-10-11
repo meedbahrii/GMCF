@@ -10,6 +10,19 @@
 html[data-theme='dark'] body { @apply bg-[#1B1B1B] text-[#F5F5F5]; }
 html[data-theme='light'] body { @apply bg-[#FAFAFA] text-[#0d0f12]; }
 body { @apply transition-colors duration-300; }
+
+/* Light mode utility classes */
+html[data-theme='light'] .light\:bg-\[#FAFAFA\] { background-color: #FAFAFA; }
+html[data-theme='light'] .light\:text-\[#0d0f12\] { color: #0d0f12; }
+html[data-theme='light'] .light\:text-\[#999\] { color: #999; }
+html[data-theme='light'] .light\:text-gray-800 { color: #1f2937; }
+html[data-theme='light'] .light\:text-gray-600 { color: #4b5563; }
+html[data-theme='light'] .light\:text-gray-400 { color: #9ca3af; }
+html[data-theme='light'] .light\:bg-white { background-color: #ffffff; }
+html[data-theme='light'] .light\:border-gray-300\/50 { border-color: rgba(209, 213, 219, 0.5); }
+html[data-theme='light'] .light\:border-gray-400 { border-color: #9ca3af; }
+html[data-theme='light'] .light\:text-cyan-600 { color: #0891b2; }
+html[data-theme='light'] .light\:bg-gray-200 { background-color: #e5e7eb; }
 /* GMCF Loading font utility */
 .font-gmc {
   font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;

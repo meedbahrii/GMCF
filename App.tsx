@@ -161,7 +161,7 @@ const App: React.FC = () => {
     }
 
     return (
-        <div className="bg-[#1B1B1B] min-h-screen">
+        <div className="bg-[#1B1B1B] dark:bg-[#1B1B1B] light:bg-[#FAFAFA] min-h-screen">
             <SEO 
                 title="GMCF - Création Audiovisuelle & Formation | Production Virtuelle LED Wall"
                 description="GMCF révolutionne le paysage audiovisuel marocain avec des technologies de pointe : LED Wall pour production virtuelle, post-production VFX, et formation PIXELLAB. Hub africain d'excellence."

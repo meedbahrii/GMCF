@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
     }, [isMobileMenuOpen]);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 p-3 sm:p-4 md:px-8 lg:px-12 md:py-5 flex justify-between items-center z-[200] bg-[#1B1B1B]">
+        <nav className="fixed top-0 left-0 right-0 p-3 sm:p-4 md:px-8 lg:px-12 md:py-5 flex justify-between items-center z-[200] bg-[#1B1B1B] dark:bg-[#1B1B1B] light:bg-[#FAFAFA]">
             <Logo size="md" />
             
             {/* Desktop Navigation */}
@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
                         <a 
                             href={link.href}
                             onClick={(e) => handleLinkClick(e, link.href)}
-                            className="link-underline text-[#FAFAFA] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
+                            className="link-underline text-[#FAFAFA] dark:text-[#FAFAFA] light:text-[#0d0f12] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
                         >
                             {link.label}
                         </a>
@@ -56,9 +56,9 @@ const Navbar: React.FC = () => {
                 aria-label="Toggle mobile menu"
                 aria-expanded={isMobileMenuOpen}
             >
-                <span className={`w-7 h-0.5 bg-[#FAFAFA] transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                <span className={`w-7 h-0.5 bg-[#FAFAFA] transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-                <span className={`w-7 h-0.5 bg-[#FAFAFA] transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                <span className={`w-7 h-0.5 bg-[#FAFAFA] dark:bg-[#FAFAFA] light:bg-[#0d0f12] transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`w-7 h-0.5 bg-[#FAFAFA] dark:bg-[#FAFAFA] light:bg-[#0d0f12] transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                <span className={`w-7 h-0.5 bg-[#FAFAFA] dark:bg-[#FAFAFA] light:bg-[#0d0f12] transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </button>
 
             {/* Mobile Navigation Menu */}
