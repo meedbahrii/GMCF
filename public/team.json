@@ -1,7 +1,7 @@
 [
   {
     "name": "ADAM ENNIUOR",
-    "title": "Directeur Général",
+    "title": "Fondateur",
     "personalDetail": "Pionnier de l'audiovisuel marocain",
     "image": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
     "imageWebp": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
@@ -19,7 +19,7 @@
   },
   {
     "name": "MOHAMMED BAHRI",
-    "title": "Directeur Technique",
+    "title": "Chief Technology Officer",
     "personalDetail": "Visionnaire de l'innovation audiovisuelle",
     "image": "https://picsum.photos/seed/mohammed/400/500",
     "imageWebp": "https://picsum.photos/seed/mohammed/400/500",
@@ -72,74 +72,6 @@
     },
     "department": "Art Physique",
     "featured": true,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
-    "name": "FATIMA ZAHRA",
-    "title": "Responsable Production",
-    "personalDetail": "Spécialiste en gestion de projets audiovisuels",
-    "image": "https://picsum.photos/seed/fatima/400/500",
-    "imageWebp": "https://picsum.photos/seed/fatima/400/500",
-    "expertise": ["Production", "Gestion", "Coordination"],
-    "color": "from-[#0F7156] to-[#B73239]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/fatima-zahra",
-      "email": "fatima@gmcf.ma"
-    },
-    "department": "Production",
-    "featured": false,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
-    "name": "YOUSSEF ALAMI",
-    "title": "Ingénieur LED Wall",
-    "personalDetail": "Expert en technologies de production virtuelle",
-    "image": "https://picsum.photos/seed/youssef/400/500",
-    "imageWebp": "https://picsum.photos/seed/youssef/400/500",
-    "expertise": ["LED Wall", "Technologie", "Innovation"],
-    "color": "from-[#5A3E85] to-[#0F7156]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/youssef-alami",
-      "email": "youssef@gmcf.ma"
-    },
-    "department": "Technique",
-    "featured": false,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
-    "name": "AICHA BENALI",
-    "title": "Responsable Formation",
-    "personalDetail": "Coordinatrice des programmes PIXELLAB",
-    "image": "https://picsum.photos/seed/aicha/400/500",
-    "imageWebp": "https://picsum.photos/seed/aicha/400/500",
-    "expertise": ["Formation", "Pédagogie", "Développement"],
-    "color": "from-[#B73239] to-[#0F7156]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/aicha-benali",
-      "email": "aicha@gmcf.ma"
-    },
-    "department": "Formation",
-    "featured": false,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
-    "name": "KARIM EL FASSI",
-    "title": "Superviseur Post-Production",
-    "personalDetail": "Maître de la post-production et des effets visuels",
-    "image": "https://picsum.photos/seed/karim/400/500",
-    "imageWebp": "https://picsum.photos/seed/karim/400/500",
-    "expertise": ["Post-Production", "VFX", "Supervision"],
-    "color": "from-[#0F1C4D] to-[#B73239]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/karim-el-fassi",
-      "email": "karim@gmcf.ma"
-    },
-    "department": "Post-Production",
-    "featured": false,
     "location": "Casablanca, MA",
     "languages": ["fr", "ar", "en"]
   }
