@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "services": "Services",
+    "formation": "Training",
+    "contact": "Contact",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "blog": "Blog"
+  },
+  "hero": {
+    "vision": "Our Vision",
+    "title": "AUDIOVISUAL",
+    "subtitle": "Our passion is modern and innovative audiovisual, the key to successful communication with our clients and partners.",
+    "discover": "Discover More"
+  },
+  "services": {
+    "subtitle": "Cutting-Edge Technologies",
+    "title": "Our Services",
+    "production": {
+      "title": "Virtual Production",
+      "description": "We democratize access to LED Wall virtual production, cutting-edge technology for unlimited visual creations."
+    },
+    "vfx": {
+      "title": "Post-Production & VFX",
+      "description": "Complete post-production, VFX, CFX and CGI services at an international level to enhance every project."
+    },
+    "equipment": {
+      "title": "State-of-the-Art Equipment",
+      "description": "Access to a fleet of latest-generation cameras and equipment for unmatched image quality."
+    },
+    "creation": {
+      "title": "Creation & Design",
+      "description": "From blank page to screen, our team accompanies the most ambitious projects with creativity and technical expertise."
+    }
+  },
+  "formation": {
+    "subtitle": "Training Tomorrow's Talents",
+    "title": "PIXELLAB Training"
+  },
+  "about": {
+    "title": "Our Vision",
+    "description1": "We don't just follow the market — we create it. GMCF was born from an ambition: to build a reference African cinematographic hub in Morocco.",
+    "description2": "By mobilizing demanding talents, cutting-edge technologies and strategic investors, we elevate artistic production to a level of international excellence.",
+    "stats": {
+      "hub": "African Hub",
+      "partners": "Strategic Partners",
+      "ledwall": "LED Wall in Morocco",
+      "ambition": "Ambition"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Passionate Experts"
+  },
+  "portfolio": {
+    "title": "Our Achievements",
+    "subtitle": "Excellence Projects",
+    "filter": {
+      "all": "All",
+      "production": "Production",
+      "vfx": "VFX",
+      "formation": "Training",
+      "equipement": "Equipment",
+      "evenementiel": "Events",
+      "corporate": "Corporate"
+    },
+    "viewProject": "View Project",
+    "client": "Client",
+    "year": "Year",
+    "technologies": "Technologies",
+    "duration": "Duration",
+    "team": "Team",
+    "location": "Location",
+    "budget": "Budget"
+  },
+  "blog": {
+    "title": "News & Insights",
+    "subtitle": "Audiovisual Innovation",
+    "readMore": "Read more",
+    "readTime": "min read",
+    "author": "By",
+    "published": "Published on",
+    "categories": {
+      "all": "All categories",
+      "technologie": "Technology",
+      "formation": "Training",
+      "vfx": "VFX",
+      "industrie": "Industry",
+      "equipement": "Equipment",
+      "equipe": "Team"
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Tell us about your project. We'll get back to you quickly.",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "company": "Company",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "privacy": "I accept the privacy policy",
+      "submit": "Send message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "description": "Moroccan Group for Audiovisual Creation and Training (GMCF)",
+      "location": "Casablanca, Morocco",
+      "email": "contact@gmcf.ma",
+      "phone": "+212 00 00 00 00",
+      "follow": "Follow us"
+    }
+  },
+  "footer": {
+    "contact": "Contact us",
+    "navigation": "Navigation",
+    "contactInfo": "Contact",
+    "vision": "Our Vision",
+    "careers": "Careers",
+    "partners": "Our Partners",
+    "invest": "Invest",
+    "press": "Press",
+    "rights": "All rights reserved"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "back": "Back",
+    "more": "More",
+    "less": "Less"
+  }
+}

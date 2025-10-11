@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "services": "Services",
+    "formation": "Formation",
+    "contact": "Contact",
+    "about": "À Propos",
+    "portfolio": "Portfolio",
+    "blog": "Blog"
+  },
+  "hero": {
+    "vision": "Notre Vision",
+    "title": "AUDIOVISUEL",
+    "subtitle": "Notre passion est un audiovisuel moderne et innovant, la clé d'une communication réussie avec nos clients et partenaires.",
+    "discover": "Découvrir Plus"
+  },
+  "services": {
+    "subtitle": "Technologies de Pointe",
+    "title": "Nos Services",
+    "production": {
+      "title": "Production Virtuelle",
+      "description": "Nous démocratisons l'accès à la production virtuelle sur LED Wall, une technologie de pointe pour des créations visuelles sans limites."
+    },
+    "vfx": {
+      "title": "Post-Production & VFX",
+      "description": "Des services complets de post-production, VFX, CFX et CGI d'un niveau international pour sublimer chaque projet."
+    },
+    "equipment": {
+      "title": "Équipement de Pointe",
+      "description": "Accès à un parc de caméras et d'équipements de dernière génération pour une qualité d'image inégalée."
+    },
+    "creation": {
+      "title": "Création & Conception",
+      "description": "De la page blanche à l'écran, notre équipe accompagne les projets les plus ambitieux avec créativité et expertise technique."
+    }
+  },
+  "formation": {
+    "subtitle": "Former les Talents de Demain",
+    "title": "Formation PIXELLAB"
+  },
+  "about": {
+    "title": "Notre Vision",
+    "description1": "Nous ne nous contentons pas de suivre le marché — nous le créons. GMCF est né d'une ambition : bâtir un hub cinématographique africain de référence au Maroc.",
+    "description2": "En mobilisant des talents exigeants, des technologies de pointe et des investisseurs stratégiques, nous élevons la production artistique à un niveau d'excellence international.",
+    "stats": {
+      "hub": "Hub Africain",
+      "partners": "Partenaires Stratégiques",
+      "ledwall": "LED Wall au Maroc",
+      "ambition": "Ambition"
+    }
+  },
+  "team": {
+    "title": "Notre Équipe",
+    "subtitle": "Des Experts Passionnés"
+  },
+  "portfolio": {
+    "title": "Nos Réalisations",
+    "subtitle": "Projets d'Excellence",
+    "filter": {
+      "all": "Tous",
+      "production": "Production",
+      "vfx": "VFX",
+      "formation": "Formation",
+      "equipement": "Équipement",
+      "evenementiel": "Événementiel",
+      "corporate": "Corporate"
+    },
+    "viewProject": "Voir le Projet",
+    "client": "Client",
+    "year": "Année",
+    "technologies": "Technologies",
+    "duration": "Durée",
+    "team": "Équipe",
+    "location": "Lieu",
+    "budget": "Budget"
+  },
+  "blog": {
+    "title": "Actualités & Insights",
+    "subtitle": "L'Innovation Audiovisuelle",
+    "readMore": "Lire la suite",
+    "readTime": "min de lecture",
+    "author": "Par",
+    "published": "Publié le",
+    "categories": {
+      "all": "Toutes les catégories",
+      "technologie": "Technologie",
+      "formation": "Formation",
+      "vfx": "VFX",
+      "industrie": "Industrie",
+      "equipement": "Équipement",
+      "equipe": "Équipe"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Parlez-nous de votre projet. Nous reviendrons vers vous rapidement.",
+    "form": {
+      "name": "Nom complet",
+      "email": "Email",
+      "company": "Société",
+      "phone": "Téléphone",
+      "subject": "Sujet",
+      "message": "Message",
+      "privacy": "J'accepte la politique de confidentialité",
+      "submit": "Envoyer le message"
+    },
+    "info": {
+      "title": "Coordonnées",
+      "description": "Groupe Marocain de Création Audiovisuelle et de la Formation (GMCF)",
+      "location": "Casablanca, Maroc",
+      "email": "contact@gmcf.ma",
+      "phone": "+212 00 00 00 00",
+      "follow": "Suivez-nous"
+    }
+  },
+  "footer": {
+    "contact": "Contactez-nous",
+    "navigation": "Navigation",
+    "contactInfo": "Contact",
+    "vision": "Notre Vision",
+    "careers": "Carrières",
+    "partners": "Nos Partenaires",
+    "invest": "Investir",
+    "press": "Presse",
+    "rights": "Tous droits réservés"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "back": "Retour",
+    "more": "Plus",
+    "less": "Moins"
+  }
+}
