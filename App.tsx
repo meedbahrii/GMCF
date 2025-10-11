@@ -6,8 +6,6 @@ const Collections = React.lazy(() => import('./components/Collections'));
 const Exhibitions = React.lazy(() => import('./components/Exhibitions'));
 const About = React.lazy(() => import('./components/About'));
 const Team = React.lazy(() => import('./components/Team'));
-const Portfolio = React.lazy(() => import('./components/Portfolio'));
-const Blog = React.lazy(() => import('./components/Blog'));
 const Footer = React.lazy(() => import('./components/Footer'));
 import ContactUs from './components/ContactUs';
 import LoadingScreen from './components/LoadingScreen';
@@ -93,8 +91,6 @@ const App: React.FC = () => {
         formation: useRef<HTMLDivElement>(null),
         about: useRef<HTMLDivElement>(null),
         team: useRef<HTMLDivElement>(null),
-        portfolio: useRef<HTMLDivElement>(null),
-        blog: useRef<HTMLDivElement>(null),
         contact: useRef<HTMLDivElement>(null),
     };
     
@@ -104,8 +100,6 @@ const App: React.FC = () => {
         { id: 'formation', label: 'Formation', ref: sectionRefs.formation },
         { id: 'about', label: 'About', ref: sectionRefs.about },
         { id: 'team', label: 'Équipe', ref: sectionRefs.team },
-        { id: 'portfolio', label: 'Portfolio', ref: sectionRefs.portfolio },
-        { id: 'blog', label: 'Blog', ref: sectionRefs.blog },
     ];
 
     const sideNavSections = sections.map(({ id, label }) => ({ id, label }));
@@ -190,8 +184,6 @@ const App: React.FC = () => {
                     <div ref={sectionRefs.formation} id="formation"><Exhibitions /></div>
                     <div ref={sectionRefs.about} id="about"><About /></div>
                     <div ref={sectionRefs.team} id="team"><Team /></div>
-                    <div ref={sectionRefs.portfolio} id="portfolio"><Portfolio /></div>
-                    <div ref={sectionRefs.blog} id="blog"><Blog /></div>
                     <div ref={sectionRefs.contact} id="contact"><ContactUs /><Footer /></div>
                 </React.Suspense>
             </main>

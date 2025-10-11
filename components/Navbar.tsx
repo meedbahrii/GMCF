@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { NAV_LINKS } from '../constants';
 import Logo from './Logo';
 import ThemeToggle from './ThemeToggle';
-import LanguageSwitcher from './LanguageSwitcher';
-import { useTranslation } from '../utils/i18n';
 
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { t } = useTranslation();
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
@@ -43,31 +40,10 @@ const Navbar: React.FC = () => {
                             onClick={(e) => handleLinkClick(e, link.href)}
                             className="link-underline text-[#FAFAFA] dark:text-[#FAFAFA] light:text-[#0d0f12] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
                         >
-                            {t(`nav.${link.label.toLowerCase().replace(' ', '')}`)}
+                            {link.label}
                         </a>
                     </li>
                 ))}
-                <li>
-                    <a 
-                        href="#portfolio"
-                        onClick={(e) => handleLinkClick(e, '#portfolio')}
-                        className="link-underline text-[#FAFAFA] dark:text-[#FAFAFA] light:text-[#0d0f12] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
-                    >
-                        {t('nav.portfolio')}
-                    </a>
-                </li>
-                <li>
-                    <a 
-                        href="#blog"
-                        onClick={(e) => handleLinkClick(e, '#blog')}
-                        className="link-underline text-[#FAFAFA] dark:text-[#FAFAFA] light:text-[#0d0f12] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
-                    >
-                        {t('nav.blog')}
-                    </a>
-                </li>
-                <li>
-                    <LanguageSwitcher />
-                </li>
                 <li>
                     <ThemeToggle />
                 </li>
