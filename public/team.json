@@ -21,8 +21,8 @@
     "name": "MOHAMMED BAHRI",
     "title": "Chief Technology Officer",
     "personalDetail": "Visionnaire de l'innovation audiovisuelle",
-    "image": "https://picsum.photos/seed/mohammed/400/500",
-    "imageWebp": "https://picsum.photos/seed/mohammed/400/500",
+    "image": "/images/team/mohammed.jpg",
+    "imageWebp": "/images/team/mohammed.jpg",
     "expertise": ["Leadership", "Innovation", "Stratégie"],
     "color": "from-[#0F1C4D] to-[#5A3E85]",
     "socials": {
