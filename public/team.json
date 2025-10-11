@@ -1,7 +1,7 @@
 [
   {
     "name": "ADAM ENNIUOR",
-    "title": "Fondateur",
+    "title": "Directeur Général",
     "personalDetail": "Pionnier de l'audiovisuel marocain",
     "image": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
     "imageWebp": "https://media.licdn.com/dms/image/v2/D5603AQHJWmEM5IuwxQ/profile-displayphoto-scale_100_100/B56ZiRUp5bHUAg-/0/1754784769961?e=1762992000&v=beta&t=MjbdR7Mya3Das14yjOY-yKMEdfKqMPcdv0jvOHYObuY",
@@ -19,7 +19,7 @@
   },
   {
     "name": "MOHAMMED BAHRI",
-    "title": "Chief Technology Officer",
+    "title": "Directeur Technique",
     "personalDetail": "Visionnaire de l'innovation audiovisuelle",
     "image": "https://picsum.photos/seed/mohammed/400/500",
     "imageWebp": "https://picsum.photos/seed/mohammed/400/500",
@@ -76,128 +76,70 @@
     "languages": ["fr", "ar", "en"]
   },
   {
-    "name": "FATIMA ZAHRA ALAMI",
-    "title": "Co-Fondatrice & Directrice Générale",
-    "personalDetail": "Visionnaire stratégique et leader inspirante",
+    "name": "FATIMA ZAHRA",
+    "title": "Responsable Production",
+    "personalDetail": "Spécialiste en gestion de projets audiovisuels",
     "image": "https://picsum.photos/seed/fatima/400/500",
     "imageWebp": "https://picsum.photos/seed/fatima/400/500",
-    "expertise": ["Stratégie", "Leadership", "Management", "Innovation"],
-    "color": "from-[#B73239] to-[#E67E22]",
+    "expertise": ["Production", "Gestion", "Coordination"],
+    "color": "from-[#0F7156] to-[#B73239]",
     "socials": {
-      "linkedin": "https://linkedin.com/in/fatima-zahra-alami",
-      "twitter": "https://twitter.com/fatimaalami",
+      "linkedin": "https://linkedin.com/in/fatima-zahra",
       "email": "fatima@gmcf.ma"
     },
-    "department": "Executive",
-    "featured": true,
+    "department": "Production",
+    "featured": false,
     "location": "Casablanca, MA",
     "languages": ["fr", "ar", "en"]
   },
   {
-    "name": "YOUSSEF BENALI",
-    "title": "Chef de Production",
-    "personalDetail": "Expert en gestion de projets audiovisuels",
+    "name": "YOUSSEF ALAMI",
+    "title": "Ingénieur LED Wall",
+    "personalDetail": "Expert en technologies de production virtuelle",
     "image": "https://picsum.photos/seed/youssef/400/500",
     "imageWebp": "https://picsum.photos/seed/youssef/400/500",
-    "expertise": ["Production", "Gestion de projet", "Coordination", "Logistique"],
-    "color": "from-[#0F7156] to-[#C9A227]",
+    "expertise": ["LED Wall", "Technologie", "Innovation"],
+    "color": "from-[#5A3E85] to-[#0F7156]",
     "socials": {
-      "linkedin": "https://linkedin.com/in/youssef-benali",
-      "twitter": "https://twitter.com/youssefbenali",
+      "linkedin": "https://linkedin.com/in/youssef-alami",
       "email": "youssef@gmcf.ma"
     },
-    "department": "Production",
-    "featured": true,
+    "department": "Technique",
+    "featured": false,
     "location": "Casablanca, MA",
     "languages": ["fr", "ar", "en"]
   },
   {
-    "name": "AICHA EL MANSOURI",
-    "title": "Directrice Financière",
-    "personalDetail": "Spécialiste en finance et développement d'entreprise",
+    "name": "AICHA BENALI",
+    "title": "Responsable Formation",
+    "personalDetail": "Coordinatrice des programmes PIXELLAB",
     "image": "https://picsum.photos/seed/aicha/400/500",
     "imageWebp": "https://picsum.photos/seed/aicha/400/500",
-    "expertise": ["Finance", "Comptabilité", "Stratégie", "Investissement"],
-    "color": "from-[#5A3E85] to-[#B73239]",
+    "expertise": ["Formation", "Pédagogie", "Développement"],
+    "color": "from-[#B73239] to-[#0F7156]",
     "socials": {
-      "linkedin": "https://linkedin.com/in/aicha-el-mansouri",
-      "twitter": "https://twitter.com/aichaelmansouri",
+      "linkedin": "https://linkedin.com/in/aicha-benali",
       "email": "aicha@gmcf.ma"
     },
-    "department": "Finance",
-    "featured": true,
+    "department": "Formation",
+    "featured": false,
     "location": "Casablanca, MA",
     "languages": ["fr", "ar", "en"]
   },
   {
-    "name": "KARIM TAZI",
-    "title": "Directeur Commercial",
-    "personalDetail": "Expert en développement commercial et partenariats",
+    "name": "KARIM EL FASSI",
+    "title": "Superviseur Post-Production",
+    "personalDetail": "Maître de la post-production et des effets visuels",
     "image": "https://picsum.photos/seed/karim/400/500",
     "imageWebp": "https://picsum.photos/seed/karim/400/500",
-    "expertise": ["Commercial", "Partenariats", "Business Development", "Marketing"],
-    "color": "from-[#0F1C4D] to-[#5A3E85]",
+    "expertise": ["Post-Production", "VFX", "Supervision"],
+    "color": "from-[#0F1C4D] to-[#B73239]",
     "socials": {
-      "linkedin": "https://linkedin.com/in/karim-tazi",
-      "twitter": "https://twitter.com/karimtazi",
+      "linkedin": "https://linkedin.com/in/karim-el-fassi",
       "email": "karim@gmcf.ma"
     },
-    "department": "Commercial",
-    "featured": true,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
-    "name": "SOUAD BENCHRIF",
-    "title": "Directrice des Ressources Humaines",
-    "personalDetail": "Spécialiste en gestion des talents et développement organisationnel",
-    "image": "https://picsum.photos/seed/souad/400/500",
-    "imageWebp": "https://picsum.photos/seed/souad/400/500",
-    "expertise": ["RH", "Recrutement", "Formation", "Développement"],
-    "color": "from-[#B73239] to-[#E67E22]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/souad-benchrif",
-      "twitter": "https://twitter.com/souadbenchrif",
-      "email": "souad@gmcf.ma"
-    },
-    "department": "Ressources Humaines",
-    "featured": true,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
-    "name": "HASSAN EL FASSI",
-    "title": "Directeur Technique",
-    "personalDetail": "Expert en technologies audiovisuelles et infrastructure",
-    "image": "https://picsum.photos/seed/hassan/400/500",
-    "imageWebp": "https://picsum.photos/seed/hassan/400/500",
-    "expertise": ["Technique", "Infrastructure", "Équipement", "Innovation"],
-    "color": "from-[#0F7156] to-[#C9A227]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/hassan-el-fassi",
-      "twitter": "https://twitter.com/hassanelfassi",
-      "email": "hassan@gmcf.ma"
-    },
-    "department": "Technique",
-    "featured": true,
-    "location": "Casablanca, MA",
-    "languages": ["fr", "ar", "en"]
-  },
-  {
-    "name": "NADIA BERRADA",
-    "title": "Directrice de la Formation PIXELLAB",
-    "personalDetail": "Pédagogue passionnée et formatrice d'excellence",
-    "image": "https://picsum.photos/seed/nadia/400/500",
-    "imageWebp": "https://picsum.photos/seed/nadia/400/500",
-    "expertise": ["Formation", "Pédagogie", "Développement", "Excellence"],
-    "color": "from-[#5A3E85] to-[#B73239]",
-    "socials": {
-      "linkedin": "https://linkedin.com/in/nadia-berrada",
-      "twitter": "https://twitter.com/nadiaberrada",
-      "email": "nadia@gmcf.ma"
-    },
-    "department": "Formation",
-    "featured": true,
+    "department": "Post-Production",
+    "featured": false,
     "location": "Casablanca, MA",
     "languages": ["fr", "ar", "en"]
   }
