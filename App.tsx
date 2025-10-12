@@ -10,6 +10,7 @@ const Footer = React.lazy(() => import('./components/Footer'));
 import ContactUs from './components/ContactUs';
 import LoadingScreen from './components/LoadingScreen';
 import SEO from './components/SEO';
+import { Analytics } from '@vercel/analytics/react';
 
 // CustomCursor Component
 const CustomCursor: React.FC = () => {
@@ -187,6 +188,7 @@ const App: React.FC = () => {
                     <div ref={sectionRefs.contact} id="contact"><ContactUs /><Footer /></div>
                 </React.Suspense>
             </main>
+            <Analytics />
         </div>
     );
 };
