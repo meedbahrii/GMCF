@@ -45,12 +45,16 @@ const Team: React.FC = () => {
 
   useEffect(() => {
     let mounted = true;
-    fetch('/team.json')
+    // Use relative path so it works when the site is served under a subpath/base URL
+    fetch('team.json')
       .then((r) => r.json())
       .then((data: TeamMember[]) => {
         if (mounted) setMembers(data);
       })
-      .catch(() => {});
+      .catch((err) => {
+        // Surface an error to help diagnose missing data in production
+        console.error('Failed to load team.json', err);
+      });
     return () => {
       mounted = false;
     };
