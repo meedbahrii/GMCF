@@ -47,13 +47,20 @@ const Team: React.FC = () => {
     let mounted = true;
     // Use relative path so it works when the site is served under a subpath/base URL
     fetch('team.json')
-      .then((r) => r.json())
+      .then((r) => {
+        console.log('Team fetch response:', r.status, r.statusText);
+        if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+        return r.json();
+      })
       .then((data: TeamMember[]) => {
+        console.log('Team data loaded:', data.length, 'members');
         if (mounted) setMembers(data);
       })
       .catch((err) => {
         // Surface an error to help diagnose missing data in production
         console.error('Failed to load team.json', err);
+        // Set empty array to prevent infinite loading state
+        if (mounted) setMembers([]);
       });
     return () => {
       mounted = false;
@@ -105,28 +112,36 @@ const Team: React.FC = () => {
 
         {/* Grid of cyberpunk cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-x-8 lg:gap-y-16 justify-items-center">
-          {members.map((m, i) => {
-            const links: Array<{platform: 'github' | 'linkedin' | 'twitter', url: string}> = [];
-            if (m.socials?.github) links.push({ platform: 'github', url: m.socials.github });
-            if (m.socials?.linkedin) links.push({ platform: 'linkedin', url: m.socials.linkedin });
-            if (m.socials?.twitter) links.push({ platform: 'twitter', url: m.socials.twitter });
-            const cm = {
-              name: m.name,
-              description: m.personalDetail,
-              role: getAcronymWithDots(m.title),
-              imageUrl: m.image,
-              socialLinks: links,
-            };
-            return (
-              <div 
-                key={m.name}
-                className="animate-card-enter"
-                style={{ animationDelay: `${100 + i * 100}ms` }}
-              >
-                <TeamMemberCard {...cm} />
-              </div>
-            );
-          })}
+          {members.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600">
+                Loading team members...
+              </p>
+            </div>
+          ) : (
+            members.map((m, i) => {
+              const links: Array<{platform: 'github' | 'linkedin' | 'twitter', url: string}> = [];
+              if (m.socials?.github) links.push({ platform: 'github', url: m.socials.github });
+              if (m.socials?.linkedin) links.push({ platform: 'linkedin', url: m.socials.linkedin });
+              if (m.socials?.twitter) links.push({ platform: 'twitter', url: m.socials.twitter });
+              const cm = {
+                name: m.name,
+                description: m.personalDetail,
+                role: getAcronymWithDots(m.title),
+                imageUrl: m.image,
+                socialLinks: links,
+              };
+              return (
+                <div 
+                  key={m.name}
+                  className="animate-card-enter"
+                  style={{ animationDelay: `${100 + i * 100}ms` }}
+                >
+                  <TeamMemberCard {...cm} />
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </motion.section>
