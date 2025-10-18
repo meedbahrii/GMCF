@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
                         <a 
                             href={link.href}
                             onClick={(e) => handleLinkClick(e, link.href)}
-                            className="link-underline text-[#FAFAFA] dark:text-[#FAFAFA] light:text-[#0d0f12] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
+                            className="link-underline text-[#FAFAFA] dark:text-[#FAFAFA] light-text-dark text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
                         >
                             {link.label}
                         </a>

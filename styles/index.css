@@ -13,8 +13,8 @@ body { @apply transition-colors duration-300; }
 
 /* Light mode utility classes */
 html[data-theme='light'] .light\:bg-\[#FAFAFA\] { background-color: #FAFAFA; }
-html[data-theme='light'] .light\:text-\[#0d0f12\] { color: #0d0f12; }
-html[data-theme='light'] .light\:text-\[#999\] { color: #999; }
+html[data-theme='light'] .light-text-dark { color: #0d0f12; }
+html[data-theme='light'] .light-text-gray { color: #999; }
 html[data-theme='light'] .light\:text-gray-800 { color: #1f2937; }
 html[data-theme='light'] .light\:text-gray-600 { color: #4b5563; }
 html[data-theme='light'] .light\:text-gray-400 { color: #9ca3af; }
