@@ -100,10 +100,10 @@ const Team: React.FC = () => {
           }`}
         >
           <div className="flex items-center gap-3">
-            <span className="font-mono tracking-[0.25em] text-[#666] dark:text-[#666] light-text-gray text-lg">03.</span>
+            <span className="font-mono tracking-[0.25em] text-[#666] text-lg">03.</span>
             <h2
               id="team-title"
-              className="font-mono text-white dark:text-white light-text-dark text-[32px] sm:text-[40px] md:text-[48px] tracking-[0.02em]"
+              className="font-mono text-white text-[32px] sm:text-[40px] md:text-[48px] tracking-[0.02em]"
             >
               Our Teams
             </h2>

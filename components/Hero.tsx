@@ -115,15 +115,15 @@ const Hero: React.FC = () => {
                         <Logo size="lg" />
                     </div>
                     
-                    <p className="text-xs md:text-sm text-[#F5F5F5] dark:text-[#F5F5F5] light-text-dark tracking-[2px] md:tracking-[3px] uppercase mb-4 md:mb-5 animate-[slideUp_1s_ease_0.5s_forwards] opacity-0">
+                    <p className="text-xs md:text-sm text-[#F5F5F5] tracking-[2px] md:tracking-[3px] uppercase mb-4 md:mb-5 animate-[slideUp_1s_ease_0.5s_forwards] opacity-0">
                         Notre Vision
                     </p>
                     
-                    <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-4 sm:mb-5 md:mb-7 text-[#FAFAFA] dark:text-[#FAFAFA] light-text-dark animate-[slideUp_1s_ease_0.7s_forwards] opacity-0 [text-wrap:balance]">
+                    <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-4 sm:mb-5 md:mb-7 text-[#FAFAFA] animate-[slideUp_1s_ease_0.7s_forwards] opacity-0 [text-wrap:balance]">
                         AUDIOVISUEL
                     </h1>
                     
-                    <p className="text-sm sm:text-base md:text-lg text-[#F5F5F5] dark:text-[#F5F5F5] light-text-dark leading-relaxed mb-6 sm:mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0 animate-[slideUp_1s_ease_0.9s_forwards] opacity-0">
+                    <p className="text-sm sm:text-base md:text-lg text-[#F5F5F5] leading-relaxed mb-6 sm:mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0 animate-[slideUp_1s_ease_0.9s_forwards] opacity-0">
                         Notre passion est un audiovisuel moderne et innovant, la clé d'une communication réussie avec nos clients et partenaires.
                     </p>
                     
@@ -135,12 +135,12 @@ const Hero: React.FC = () => {
                     >
                         <button 
                             onClick={scrollToServices}
-                            className="w-10 h-10 md:w-12 md:h-12 border border-[#FAFAFA] dark:border-[#FAFAFA] light:border-[#0d0f12] rounded-full flex items-center justify-center hover:bg-[#B73239] hover:border-[#B73239] transition-all duration-300 group">
+                            className="w-10 h-10 md:w-12 md:h-12 border border-[#FAFAFA] rounded-full flex items-center justify-center hover:bg-[#B73239] hover:border-[#B73239] transition-all duration-300 group">
                             <svg className="w-4 h-4 md:w-5 md:h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
-                        <span className="text-[#FAFAFA] dark:text-[#FAFAFA] light-text-dark text-xs md:text-sm tracking-wider uppercase">Découvrir Plus</span>
+                        <span className="text-[#FAFAFA] text-xs md:text-sm tracking-wider uppercase">Découvrir Plus</span>
                     </motion.div>
                 </motion.div>
 

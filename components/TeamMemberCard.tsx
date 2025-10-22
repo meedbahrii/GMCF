@@ -105,12 +105,12 @@ export const TeamMemberCard: React.FC<TeamMember> = ({ name, description, role, 
 
   return (
     <div className="w-full max-w-xs sm:max-w-sm lg:max-w-xs group">
-      <div className="relative p-2 border border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 w-full bg-black dark:bg-black light:bg-white">
+      <div className="relative p-2 border border-gray-700/50 w-full bg-black">
         {/* Corner Brackets */}
-        <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-gray-600 dark:border-gray-600 light:border-gray-400 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
-        <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-gray-600 dark:border-gray-600 light:border-gray-400 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
-        <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-gray-600 dark:border-gray-600 light:border-gray-400 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
-        <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-gray-600 dark:border-gray-600 light:border-gray-400 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
+        <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-gray-600 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
+        <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-gray-600 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
+        <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-gray-600 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
+        <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-gray-600 group-hover:border-cyan-400 transition-all duration-300 animate-pulse-border group-hover:shadow-[0_0_8px_rgba(6,182,212,0.7)]"></div>
         
         <div className="relative z-10">
             <div className="overflow-hidden h-64">
@@ -121,21 +121,21 @@ export const TeamMemberCard: React.FC<TeamMember> = ({ name, description, role, 
                 />
             </div>
           <div className="pt-4 px-2 pb-1 text-left w-full">
-            <h3 className="text-lg sm:text-xl font-bold tracking-widest text-gray-200 dark:text-gray-200 light:text-gray-800 uppercase">{name}</h3>
+            <h3 className="text-lg sm:text-xl font-bold tracking-widest text-gray-200 uppercase">{name}</h3>
             <div className="flex items-center space-x-2 mt-1">
-                 <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 flex-grow h-8">
+                 <p className="text-sm text-gray-400 flex-grow h-8">
                     {isAiBioVisible ? aiBio : description}
                  </p>
                 <button 
                     onClick={handleAiBioToggle} 
                     disabled={isLoading}
-                    className={`p-1 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 ${isAiBioVisible ? buttonColors[buttonColorIndex] : 'text-gray-500 dark:text-gray-500 light:text-gray-400 hover:text-cyan-400'}`}
+                    className={`p-1 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 ${isAiBioVisible ? buttonColors[buttonColorIndex] : 'text-gray-500 hover:text-cyan-400'}`}
                     aria-label="Generate AI Bio"
                 >
                     <AIGenerateIcon isLoading={isLoading} />
                 </button>
             </div>
-            <p className="text-sm font-semibold text-cyan-400 dark:text-cyan-400 light:text-cyan-600 mt-1 tracking-wider">[{role}]</p>
+            <p className="text-sm font-semibold text-cyan-400 mt-1 tracking-wider">[{role}]</p>
             
             <div className="flex items-center space-x-3 sm:space-x-4 mt-3">
               {socialLinks.map((link) => (
@@ -145,11 +145,11 @@ export const TeamMemberCard: React.FC<TeamMember> = ({ name, description, role, 
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${name}'s ${link.platform}`}
-                    className="text-gray-500 dark:text-gray-500 light:text-gray-400 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_4px_rgba(6,182,212,0.7)]"
+                    className="text-gray-500 hover:text-cyan-400 transition-all duration-300 transform hover:scale-125 hover:drop-shadow-[0_0_4px_rgba(6,182,212,0.7)]"
                   >
                     {socialIcons[link.platform]}
                   </a>
-                  <div className="absolute bottom-full mb-2 px-2 py-1 text-xs font-bold text-white dark:text-white light:text-gray-800 bg-gray-800 dark:bg-gray-800 light:bg-gray-200 rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
+                  <div className="absolute bottom-full mb-2 px-2 py-1 text-xs font-bold text-white bg-gray-800 rounded-md opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap">
                     {link.platform.charAt(0).toUpperCase() + link.platform.slice(1)}
                   </div>
                 </div>
