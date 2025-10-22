@@ -25,7 +25,6 @@ interface TeamMember {
   featured?: boolean;
 }
 
-const teamMembers: TeamMember[] = [];
 
 // Returns acronym with dots from a full title, e.g. "Chief Executive Officer" -> "C.E.O"
 const getAcronymWithDots = (title: string): string => {
@@ -46,7 +45,7 @@ const Team: React.FC = () => {
   useEffect(() => {
     let mounted = true;
     // Use relative path so it works when the site is served under a subpath/base URL
-    fetch('team.json')
+    fetch('/team.json')
       .then((r) => {
         console.log('Team fetch response:', r.status, r.statusText);
         if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
@@ -85,7 +84,7 @@ const Team: React.FC = () => {
 
   return (
     <motion.section
-      className="py-16 md:py-24 px-4 md:px-6 lg:px-12 bg-[#0d0d0d] dark:bg-[#0d0d0d] light:bg-[#FAFAFA]"
+      className="py-16 md:py-24 px-4 md:px-6 lg:px-12 bg-[#0d0d0d]"
       aria-labelledby="team-title"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
