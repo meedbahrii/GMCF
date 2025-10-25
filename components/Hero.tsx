@@ -112,15 +112,24 @@ const Hero: React.FC = () => {
                 >
                     {/* Navbar contains the single logo for the first page; hero logo removed to avoid duplicates */}
                     
-                    <p className="text-xs md:text-sm text-[#F5F5F5] tracking-[2px] md:tracking-[3px] uppercase mb-4 md:mb-5 animate-[slideUp_1s_ease_0.5s_forwards] opacity-0">
+                    <p
+                        className="text-xs md:text-sm text-[#F5F5F5] tracking-[2px] md:tracking-[3px] uppercase mb-4 md:mb-5 animate-slideUp opacity-0"
+                        style={{ animationDuration: '1s', animationTimingFunction: 'ease', animationFillMode: 'forwards', animationDelay: '0.5s' }}
+                    >
                         Notre Vision
                     </p>
                     
-                    <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-4 sm:mb-5 md:mb-7 text-[#FAFAFA] animate-[slideUp_1s_ease_0.7s_forwards] opacity-0 [text-wrap:balance]">
+                    <h1
+                        className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-4 sm:mb-5 md:mb-7 text-[#FAFAFA] animate-slideUp opacity-0 [text-wrap:balance]"
+                        style={{ animationDuration: '1s', animationTimingFunction: 'ease', animationFillMode: 'forwards', animationDelay: '0.7s' }}
+                    >
                         AUDIOVISUEL
                     </h1>
                     
-                    <p className="text-sm sm:text-base md:text-lg text-[#F5F5F5] leading-relaxed mb-6 sm:mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0 animate-[slideUp_1s_ease_0.9s_forwards] opacity-0">
+                    <p
+                        className="text-sm sm:text-base md:text-lg text-[#F5F5F5] leading-relaxed mb-6 sm:mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0 animate-slideUp opacity-0"
+                        style={{ animationDuration: '1s', animationTimingFunction: 'ease', animationFillMode: 'forwards', animationDelay: '0.9s' }}
+                    >
                         Notre passion est un audiovisuel moderne et innovant, la clé d'une communication réussie avec nos clients et partenaires.
                     </p>
                     
