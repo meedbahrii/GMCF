@@ -44,16 +44,28 @@ const Team: React.FC = () => {
 
   useEffect(() => {
     let mounted = true;
-    // Use relative path so it works when the site is served under a subpath/base URL
-    fetch('/team.json')
+    // Build the team.json URL from Vite's base URL so the fetch works
+    // both in local dev and when the app is deployed under a subpath.
+    const base = (import.meta as any).env?.BASE_URL || '/';
+    const teamUrl = `${base}team.json`;
+
+    // Helpful debug logs to diagnose production issues (visible in browser console)
+    console.log('Fetching team data from', teamUrl);
+
+    fetch(teamUrl)
       .then((r) => {
-        console.log('Team fetch response:', r.status, r.statusText);
-        if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
+        console.log('Team fetch response:', r.status, r.statusText, '->', r.url);
+        if (!r.ok) {
+          // Read body text (if any) for better debugging
+          return r.text().then((txt) => {
+            throw new Error(`HTTP ${r.status}: ${r.statusText} - ${txt}`);
+          });
+        }
         return r.json();
       })
       .then((data: TeamMember[]) => {
-        console.log('Team data loaded:', data.length, 'members');
-        if (mounted) setMembers(data);
+        console.log('Team data loaded:', Array.isArray(data) ? data.length : 'unknown', 'members');
+        if (mounted) setMembers(Array.isArray(data) ? data : []);
       })
       .catch((err) => {
         // Surface an error to help diagnose missing data in production
