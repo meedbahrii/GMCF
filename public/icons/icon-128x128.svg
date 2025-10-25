@@ -1,7 +1,0 @@
-<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="128" height="128" fill="black"/>
-  <!-- SIM card shape with cut corner -->
-  <path d="M16 16h80v16H32v48h48v16H16V16z" fill="white"/>
-  <!-- G letter -->
-  <text x="64" y="88" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="80" font-weight="bold">G</text>
-</svg>

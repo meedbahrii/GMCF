@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useMousePosition } from '../hooks/useMousePosition';
-import Logo from './Logo';
 
 // Particles Component
 const Particles: React.FC = React.memo(() => {
@@ -111,9 +110,7 @@ const Hero: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: prefersReducedMotion ? 0 : 0.8, ease: 'easeOut' }}
                 >
-                    <div className="mb-6 lg:mb-8">
-                        <Logo size="lg" />
-                    </div>
+                    {/* Navbar contains the single logo for the first page; hero logo removed to avoid duplicates */}
                     
                     <p className="text-xs md:text-sm text-[#F5F5F5] tracking-[2px] md:tracking-[3px] uppercase mb-4 md:mb-5 animate-[slideUp_1s_ease_0.5s_forwards] opacity-0">
                         Notre Vision
@@ -164,7 +161,7 @@ const Hero: React.FC = () => {
                                 className="w-full h-full object-cover"
                                 loading="eager"
                                 decoding="async"
-                                fetchpriority="high"
+                                fetchPriority="high"
                             />
                             
                             {/* Fire Effect Overlay */}

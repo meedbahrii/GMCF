@@ -28,7 +28,16 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className="fixed top-0 left-0 right-0 p-3 sm:p-4 md:px-8 lg:px-12 md:py-5 flex justify-between items-center z-[200] bg-[#1B1B1B]">
-            <Logo size="md" />
+            <a
+                href="#hero"
+                aria-label="Go to top"
+                onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+            >
+                <Logo size="lg" />
+            </a>
             
             {/* Desktop Navigation */}
             <ul className="hidden md:flex gap-6 lg:gap-8 xl:gap-10 list-none items-center">
@@ -75,7 +84,17 @@ const Navbar: React.FC = () => {
                 >
                     {/* Header with logo and close */}
                     <div className="flex items-center justify-between mb-6">
-                        <Logo size="sm" />
+                        <a
+                            href="#hero"
+                            aria-label="Go to top"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+                                setIsMobileMenuOpen(false);
+                            }}
+                        >
+                            <Logo size="sm" />
+                        </a>
                         <button 
                             className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 text-black transition-transform duration-200 active:scale-95"
                             onClick={() => setIsMobileMenuOpen(false)}

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { SiLinkedin, SiVimeo, SiDailymotion, SiYoutube, SiTiktok } from 'react-icons/si';
+import SocialLink from './SocialLink';
 
 const InputBase: React.FC<{
   label: string;
@@ -73,9 +75,21 @@ const ContactUs: React.FC = () => {
           <div className="mt-8">
             <h4 className="text-sm uppercase tracking-wide text-white/60">Suivez-nous</h4>
             <div className="mt-3 flex gap-3">
-              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition"><svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4zM8.5 8h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6V24h-4v-6.8c0-1.6 0-3.6-2.2-3.6s-2.6 1.7-2.6 3.5V24h-4z"/></svg></a>
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition"><svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg></a>
-              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 transition"><svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 8.09v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+              <SocialLink href="https://www.linkedin.com/company/gmcf-group/" label="LinkedIn">
+                <SiLinkedin className="w-5 h-5" />
+              </SocialLink>
+              <SocialLink href="https://vimeo.com/user249139979" label="Vimeo">
+                <SiVimeo className="w-5 h-5" />
+              </SocialLink>
+              <SocialLink href="https://dailymotion.com/gmcf-official" label="Dailymotion">
+                <SiDailymotion className="w-5 h-5" />
+              </SocialLink>
+              <SocialLink href="https://youtube.com/@gmcfofficial" label="YouTube">
+                <SiYoutube className="w-5 h-5" />
+              </SocialLink>
+              <SocialLink href="https://www.tiktok.com/@gcmfofficial" label="TikTok">
+                <SiTiktok className="w-5 h-5" />
+              </SocialLink>
             </div>
           </div>
         </aside>
