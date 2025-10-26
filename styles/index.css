@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import loading animations */
+@import './loading.css';
+
 :root {
   color-scheme: light dark;
 }
