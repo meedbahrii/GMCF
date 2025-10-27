@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useMousePosition } from './hooks/useMousePosition';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 const Collections = React.lazy(() => import('./components/Collections'));
@@ -162,34 +163,36 @@ const App: React.FC = () => {
     }
 
     return (
-        <div className="bg-[#1B1B1B] min-h-screen">
-            <SEO 
-                title="GMCF - Création Audiovisuelle & Formation | Production Virtuelle LED Wall"
-                description="GMCF révolutionne le paysage audiovisuel marocain avec des technologies de pointe : LED Wall pour production virtuelle, post-production VFX, et formation PIXELLAB. Hub africain d'excellence."
-                keywords="audiovisuel maroc, production virtuelle, LED Wall, VFX, post-production, formation PIXELLAB, cinéma marocain, technologies audiovisuelles, GMCF"
-                url="https://gmcf.ma"
-            />
-            {/* Render custom cursor only on fine pointer devices */}
-            {isFinePointer && <div className="custom-cursor"><CustomCursor /></div>}
-            <Navbar />
-            <SideNav activeSection={activeSection} sections={sideNavSections} />
-            {/* Top scroll progress bar */}
-            <div className="fixed top-0 left-0 right-0 h-0.5 bg-transparent z-[300]">
-                <div id="scroll-progress" className="h-full bg-[#B73239] origin-left scale-x-0" style={{ transform: 'scaleX(0)' }} />
+        <LanguageProvider>
+            <div className="bg-[#1B1B1B] min-h-screen">
+                <SEO 
+                    title="GMCF - Création Audiovisuelle & Formation | Production Virtuelle LED Wall"
+                    description="GMCF révolutionne le paysage audiovisuel marocain avec des technologies de pointe : LED Wall pour production virtuelle, post-production VFX, et formation PIXELLAB. Hub africain d'excellence."
+                    keywords="audiovisuel maroc, production virtuelle, LED Wall, VFX, post-production, formation PIXELLAB, cinéma marocain, technologies audiovisuelles, GMCF"
+                    url="https://gmcf.ma"
+                />
+                {/* Render custom cursor only on fine pointer devices */}
+                {isFinePointer && <div className="custom-cursor"><CustomCursor /></div>}
+                <Navbar />
+                <SideNav activeSection={activeSection} sections={sideNavSections} />
+                {/* Top scroll progress bar */}
+                <div className="fixed top-0 left-0 right-0 h-0.5 bg-transparent z-[300]">
+                    <div id="scroll-progress" className="h-full bg-[#B73239] origin-left scale-x-0" style={{ transform: 'scaleX(0)' }} />
+                </div>
+                
+                <main>
+                    <div ref={sectionRefs.hero} id="hero"><Hero /></div>
+                    <React.Suspense fallback={<div className="p-8"><div className="animate-pulse h-6 w-40 bg-white/10 rounded" /></div>}>
+                        <div ref={sectionRefs.services} id="services"><Collections /></div>
+                        <div ref={sectionRefs.formation} id="formation"><Exhibitions /></div>
+                        <div ref={sectionRefs.about} id="about"><About /></div>
+                        <div ref={sectionRefs.team} id="team"><Team /></div>
+                        <div ref={sectionRefs.contact} id="contact"><ContactUs /><Footer /></div>
+                    </React.Suspense>
+                </main>
+                <Analytics />
             </div>
-            
-            <main>
-                <div ref={sectionRefs.hero} id="hero"><Hero /></div>
-                <React.Suspense fallback={<div className="p-8"><div className="animate-pulse h-6 w-40 bg-white/10 rounded" /></div>}>
-                    <div ref={sectionRefs.services} id="services"><Collections /></div>
-                    <div ref={sectionRefs.formation} id="formation"><Exhibitions /></div>
-                    <div ref={sectionRefs.about} id="about"><About /></div>
-                    <div ref={sectionRefs.team} id="team"><Team /></div>
-                    <div ref={sectionRefs.contact} id="contact"><ContactUs /><Footer /></div>
-                </React.Suspense>
-            </main>
-            <Analytics />
-        </div>
+        </LanguageProvider>
     );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SiLinkedin, SiVimeo, SiDailymotion, SiYoutube, SiTiktok } from 'react-icons/si';
 import SocialLink from './SocialLink';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const InputBase: React.FC<{
   label: string;
@@ -25,6 +26,8 @@ const InputBase: React.FC<{
 };
 
 const ContactUs: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="contact" className="relative py-20 md:py-28 px-4 md:px-5 lg:px-12 bg-[#0d0f12] overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -34,27 +37,27 @@ const ContactUs: React.FC = () => {
 
       <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-white">Contactez-nous</h2>
-          <p className="mt-2 text-white/70">Parlez-nous de votre projet. Nous reviendrons vers vous rapidement.</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">{t('contact.title')}</h2>
+          <p className="mt-2 text-white/70">{t('contact.subtitle')}</p>
 
           <form className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={(e) => { e.preventDefault(); alert('Message envoyé'); }}>
-            <InputBase id="name" label="Nom complet" placeholder="Votre nom" required />
-            <InputBase id="email" label="Email" type="email" placeholder="vous@exemple.com" required />
-            <InputBase id="company" label="Société" placeholder="Nom de société" />
-            <InputBase id="phone" label="Téléphone" type="tel" placeholder="+212 ..." />
+            <InputBase id="name" label={t('contact.form.name')} placeholder="Votre nom" required />
+            <InputBase id="email" label={t('contact.form.email')} type="email" placeholder="vous@exemple.com" required />
+            <InputBase id="company" label={t('contact.form.company')} placeholder="Nom de société" />
+            <InputBase id="phone" label={t('contact.form.phone')} type="tel" placeholder="+212 ..." />
             <div className="md:col-span-2">
-              <InputBase id="subject" label="Sujet" placeholder="Objet du message" />
+              <InputBase id="subject" label={t('contact.form.subject')} placeholder="Objet du message" />
             </div>
             <div className="md:col-span-2">
-              <InputBase id="message" label="Message" as="textarea" placeholder="Décrivez votre besoin..." required />
+              <InputBase id="message" label={t('contact.form.message')} as="textarea" placeholder="Décrivez votre besoin..." required />
             </div>
             <div className="md:col-span-2 flex items-center justify-between gap-3">
               <label className="text-xs text-white/70 flex items-center gap-2">
                 <input type="checkbox" required className="accent-[#B73239]" />
-                J'accepte la politique de confidentialité
+                {t('contact.form.privacy')}
               </label>
               <button type="submit" className="inline-flex items-center gap-2 bg-[#B73239] hover:bg-[#a12a31] text-white px-5 py-3 rounded-xl border border-[#B73239] transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#B73239] focus:ring-offset-[#0d0f12]">
-                Envoyer le message
+                {t('contact.form.submit')}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
               </button>
             </div>
@@ -63,7 +66,7 @@ const ContactUs: React.FC = () => {
 
         <aside className="bg-gradient-to-b from-white/5 to-white/0 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between">
           <div>
-            <h3 className="text-xl font-semibold text-white">Coordonnées</h3>
+            <h3 className="text-xl font-semibold text-white">{t('contact.coordinates')}</h3>
             <p className="mt-2 text-white/70">Groupe Marocain de Création Audiovisuelle et de la Formation (GMCF)</p>
             <div className="mt-4 space-y-3 text-white/80">
               <div className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-[#0F7156]"></span> Casablanca, Maroc</div>
@@ -73,7 +76,7 @@ const ContactUs: React.FC = () => {
           </div>
 
           <div className="mt-8">
-            <h4 className="text-sm uppercase tracking-wide text-white/60">Suivez-nous</h4>
+            <h4 className="text-sm uppercase tracking-wide text-white/60">{t('contact.follow')}</h4>
             <div className="mt-3 flex gap-3">
               <SocialLink href="https://www.linkedin.com/company/gmcf-group/" label="LinkedIn">
                 <SiLinkedin className="w-5 h-5" />

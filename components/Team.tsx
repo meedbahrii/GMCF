@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TeamMemberCard } from './TeamMemberCard';
 import { useOnScreen } from '../hooks/useOnScreen';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface SocialLinks {
   linkedin?: string;
@@ -41,31 +42,20 @@ const Team: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const headerVisible = useOnScreen(headerRef, '-100px');
   const [members, setMembers] = useState<TeamMember[]>([]);
+  const { t } = useLanguage();
 
   useEffect(() => {
     let mounted = true;
-    // Build the team.json URL from Vite's base URL so the fetch works
-    // both in local dev and when the app is deployed under a subpath.
-    const base = (import.meta as any).env?.BASE_URL || '/';
-    const teamUrl = `${base}team.json`;
-
-    // Helpful debug logs to diagnose production issues (visible in browser console)
-    console.log('Fetching team data from', teamUrl);
-
-    fetch(teamUrl)
+    // Use relative path so it works when the site is served under a subpath/base URL
+    fetch('/team.json')
       .then((r) => {
-        console.log('Team fetch response:', r.status, r.statusText, '->', r.url);
-        if (!r.ok) {
-          // Read body text (if any) for better debugging
-          return r.text().then((txt) => {
-            throw new Error(`HTTP ${r.status}: ${r.statusText} - ${txt}`);
-          });
-        }
+        console.log('Team fetch response:', r.status, r.statusText);
+        if (!r.ok) throw new Error(`HTTP ${r.status}: ${r.statusText}`);
         return r.json();
       })
       .then((data: TeamMember[]) => {
-        console.log('Team data loaded:', Array.isArray(data) ? data.length : 'unknown', 'members');
-        if (mounted) setMembers(Array.isArray(data) ? data : []);
+        console.log('Team data loaded:', data.length, 'members');
+        if (mounted) setMembers(data);
       })
       .catch((err) => {
         // Surface an error to help diagnose missing data in production
@@ -116,7 +106,7 @@ const Team: React.FC = () => {
               id="team-title"
               className="font-mono text-white text-[32px] sm:text-[40px] md:text-[48px] tracking-[0.02em]"
             >
-              Our Teams
+              {t('team.title')}
             </h2>
           </div>
         </div>

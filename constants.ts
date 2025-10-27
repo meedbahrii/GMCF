@@ -1,3 +1,12 @@
+// Navigation links - will be handled by LanguageContext
+export const NAV_LINKS_KEYS = [
+    { href: '#services', key: 'nav.services' },
+    { href: '#formation', key: 'nav.formation' },
+    { href: '#contact', key: 'nav.contact' },
+    { href: '#about', key: 'nav.about' },
+];
+
+// Legacy support - will be deprecated
 export const NAV_LINKS = [
     { href: '#services', label: 'Services' },
     { href: '#formation', label: 'Formation' },
@@ -9,21 +18,25 @@ export const SERVICES_DATA = [
     {
         icon: '🎬',
         title: 'Production Virtuelle',
+        translationKey: 'virtual',
         description: 'Nous démocratisons l\'accès à la production virtuelle sur LED Wall, une technologie de pointe pour des créations visuelles sans limites.',
     },
     {
         icon: '✨',
         title: 'Post-Production & VFX',
-        description: 'Des services complets de post-production, VFX, CFX et CGI d’un niveau international pour sublimer chaque projet.',
+        translationKey: 'vfx',
+        description: 'Des services complets de post-production, VFX, CFX et CGI d\'un niveau international pour sublimer chaque projet.',
     },
     {
         icon: '🎥',
         title: 'Équipement de Pointe',
+        translationKey: 'equipment',
         description: 'Accès à un parc de caméras et d\'équipements de dernière génération pour une qualité d\'image inégalée.',
     },
     {
         icon: '💡',
         title: 'Création & Conception',
+        translationKey: 'creation',
         description: 'De la page blanche à l\'écran, notre équipe accompagne les projets les plus ambitieux avec créativité et expertise technique.',
     },
 ];

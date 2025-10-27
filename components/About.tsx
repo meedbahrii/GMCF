@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ABOUT_STATS } from '../constants';
 import { useOnScreen } from '../hooks/useOnScreen';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const StatItem: React.FC<{ value: number; label: string; suffix: string; }> = ({ value, label, suffix }) => {
     const [count, setCount] = useState(0);
@@ -45,6 +46,7 @@ const StatItem: React.FC<{ value: number; label: string; suffix: string; }> = ({
 const About: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
     const isVisible = useOnScreen(ref, '-200px');
+    const { t } = useLanguage();
 
     return (
         <section className="min-h-screen py-16 md:py-24 px-4 md:px-5 lg:px-12 bg-gradient-to-bl from-[#1B1B1B] to-[#0F1C4D]/10 flex items-center">
@@ -54,17 +56,22 @@ const About: React.FC = () => {
             >
                 <div className="about-text">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-light bg-gradient-to-r from-[#FAFAFA] to-[#F5F5F5] bg-clip-text text-transparent mb-5 md:mb-7">
-                        Notre Vision
+                        {t('about.title')}
                     </h2>
                     <p className="text-[#F5F5F5] leading-loose text-sm md:text-base mb-4 md:mb-5">
-                        Nous ne nous contentons pas de suivre le marché — nous le créons. GMCF est né d'une ambition : bâtir un hub cinématographique africain de référence au Maroc.
+                        {t('about.desc1')}
                     </p>
                     <p className="text-[#F5F5F5] leading-loose text-sm md:text-base mb-8 md:mb-10">
-                        En mobilisant des talents exigeants, des technologies de pointe et des investisseurs stratégiques, nous élevons la production artistique à un niveau d'excellence international.
+                        {t('about.desc2')}
                     </p>
                     <div className="grid grid-cols-2 gap-3 md:gap-5">
                         {ABOUT_STATS.map(stat => (
-                            <StatItem key={stat.label} {...stat} />
+                            <StatItem 
+                                key={stat.label} 
+                                value={stat.value}
+                                label={t(`about.stats.${stat.label.toLowerCase().replace(/\s+/g, '')}`)}
+                                suffix={stat.suffix}
+                            />
                         ))}
                     </div>
                 </div>

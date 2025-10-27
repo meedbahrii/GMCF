@@ -1,8 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { SERVICES_DATA } from '../constants';
 import { useOnScreen } from '../hooks/useOnScreen';
+import { useLanguage } from '../contexts/LanguageContext';
 import LoadingSpinner from './LoadingSpinner';
 import Skeleton from './Skeleton';
+
+interface ServiceItem {
+    icon: string;
+    title: string;
+    translationKey: string;
+    description: string;
+}
 
 interface CollectionCardProps {
     icon: string;
@@ -52,6 +60,7 @@ const Collections: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
     const isVisible = useOnScreen(ref, '-100px');
     const [isLoading, setIsLoading] = useState(true);
+    const { t } = useLanguage();
 
     useEffect(() => {
         // Simulate loading time for services data
@@ -65,9 +74,9 @@ const Collections: React.FC = () => {
     return (
         <section className="min-h-screen py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-12 bg-gradient-to-br from-[#1B1B1B] to-[#0F1C4D]/20">
             <div ref={ref} className={`text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <p className="text-xs md:text-sm text-[#F5F5F5] tracking-[2px] md:tracking-[3px] uppercase mb-4 md:mb-5">Technologies de Pointe</p>
+                <p className="text-xs md:text-sm text-[#F5F5F5] tracking-[2px] md:tracking-[3px] uppercase mb-4 md:mb-5">{t('services.subtitle')}</p>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-light bg-gradient-to-r from-[#FAFAFA] to-[#F5F5F5] bg-clip-text text-transparent">
-                    Nos Services
+                    {t('services.title')}
                 </h2>
             </div>
             
@@ -84,8 +93,14 @@ const Collections: React.FC = () => {
                         />
                     ))
                 ) : (
-                    SERVICES_DATA.map((item, index) => (
-                        <CollectionCard key={item.title} {...item} index={index} />
+                    (SERVICES_DATA as ServiceItem[]).map((item, index) => (
+                        <CollectionCard 
+                            key={item.title} 
+                            icon={item.icon}
+                            title={t(`services.${item.translationKey}.title`)}
+                            description={t(`services.${item.translationKey}.desc`)}
+                            index={index} 
+                        />
                     ))
                 )}
             </div>

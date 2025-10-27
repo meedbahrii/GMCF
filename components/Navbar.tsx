@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { NAV_LINKS } from '../constants';
+import { NAV_LINKS_KEYS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 import Logo from './Logo';
 
 const Navbar: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { language, setLanguage, t } = useLanguage();
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
@@ -13,6 +15,10 @@ const Navbar: React.FC = () => {
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const toggleLanguage = () => {
+        setLanguage(language === 'fr' ? 'en' : 'fr');
     };
 
     // Prevent background scrolling when mobile menu is open
@@ -40,19 +46,36 @@ const Navbar: React.FC = () => {
             </a>
             
             {/* Desktop Navigation */}
-            <ul className="hidden md:flex gap-6 lg:gap-8 xl:gap-10 list-none items-center">
-                {NAV_LINKS.map(link => (
-                    <li key={link.label}>
-                        <a 
-                            href={link.href}
-                            onClick={(e) => handleLinkClick(e, link.href)}
-                            className="link-underline text-[#FAFAFA] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
-                        >
-                            {link.label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
+            <div className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10">
+                <ul className="flex gap-6 lg:gap-8 xl:gap-10 list-none items-center">
+                    {NAV_LINKS_KEYS.map(link => (
+                        <li key={link.key}>
+                            <a 
+                                href={link.href}
+                                onClick={(e) => handleLinkClick(e, link.href)}
+                                className="link-underline text-[#FAFAFA] text-xs sm:text-sm tracking-wider uppercase transition-colors duration-300 hover:text-[#B73239] focus-visible:outline-none"
+                            >
+                                {t(link.key)}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                
+                {/* Language Switcher */}
+                <button
+                    onClick={toggleLanguage}
+                    className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#0F1C4D]/30 border border-[#5A3E85]/20 hover:bg-[#0F1C4D]/50 transition-all duration-300"
+                    aria-label="Toggle language"
+                >
+                    <span className={`text-xs font-medium transition-colors duration-300 ${language === 'fr' ? 'text-[#B73239]' : 'text-[#F5F5F5]'}`}>
+                        FR
+                    </span>
+                    <span className="text-[#F5F5F5]/40">|</span>
+                    <span className={`text-xs font-medium transition-colors duration-300 ${language === 'en' ? 'text-[#B73239]' : 'text-[#F5F5F5]'}`}>
+                        EN
+                    </span>
+                </button>
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -105,12 +128,12 @@ const Navbar: React.FC = () => {
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-[22px] font-semibold text-black mb-4">Menu</h2>
+                    <h2 className="text-[22px] font-semibold text-black mb-4">{t('nav.menu')}</h2>
 
                     {/* Nav links */}
                     <ul className="flex-1 space-y-3">
-                        {NAV_LINKS.map(link => (
-                            <li key={link.label}>
+                        {NAV_LINKS_KEYS.map(link => (
+                            <li key={link.key}>
                                 <a 
                                     href={link.href}
                                     onClick={(e) => handleLinkClick(e, link.href)}
@@ -119,7 +142,7 @@ const Navbar: React.FC = () => {
                                                ${typeof window !== 'undefined' && window.location.hash === link.href ? 'bg-[#B73239] border-[#B73239] text-white' : 'bg-white border-black/10'}`}
                                     aria-current={typeof window !== 'undefined' && window.location.hash === link.href ? 'page' : undefined}
                                 >
-                                    <span className="inline-block group-hover:translate-x-0.5 transition-transform uppercase">{link.label}</span>
+                                    <span className="inline-block group-hover:translate-x-0.5 transition-transform uppercase">{t(link.key)}</span>
                                     <span className={`ml-4 text-lg transition-transform group-hover:translate-x-0.5 ${typeof window !== 'undefined' && window.location.hash === link.href ? 'text-white' : 'text-black/40'}`}>›</span>
                                 </a>
                             </li>
@@ -129,13 +152,19 @@ const Navbar: React.FC = () => {
                     {/* Footer actions */}
                     <div className="mt-8 space-y-3">
                         <a href="#contact" onClick={(e) => handleLinkClick(e, '#contact')} className="block text-center w-full py-3 rounded-2xl bg-[#B73239] text-white uppercase tracking-wide">
-                            Contact
+                            {t('nav.contact')}
                         </a>
-                        <div className="flex items-center justify-center gap-4 text-black/60 text-sm">
-                            <span>FR</span>
+                        
+                        {/* Language Switcher */}
+                        <button
+                            onClick={toggleLanguage}
+                            className="flex items-center justify-center gap-4 text-black/60 text-sm hover:text-black transition-colors duration-300"
+                            aria-label="Toggle language"
+                        >
+                            <span className={`font-medium ${language === 'fr' ? 'text-[#B73239]' : ''}`}>FR</span>
                             <span className="opacity-30">|</span>
-                            <span>EN</span>
-                        </div>
+                            <span className={`font-medium ${language === 'en' ? 'text-[#B73239]' : ''}`}>EN</span>
+                        </button>
                     </div>
                 </div>
             </div>

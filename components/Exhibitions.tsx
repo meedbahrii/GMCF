@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { FORMATION_DATA } from '../constants';
 import { useOnScreen } from '../hooks/useOnScreen';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface TimelineItemProps {
     date: string;
@@ -38,15 +39,16 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ date, title, description, i
 const Exhibitions: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
     const isVisible = useOnScreen(ref, '-100px');
+    const { t } = useLanguage();
     
     return (
         <section className="min-h-screen py-24 px-5 md:px-12 bg-[#1B1B1B] relative">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(15,28,77,0.3)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(183,50,57,0.2)_0%,transparent_50%)] z-0" />
             <div className="relative z-10">
                 <div ref={ref} className={`text-center mb-20 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                    <p className="text-sm text-[#F5F5F5] tracking-[3px] uppercase mb-5">Former les Talents de Demain</p>
+                    <p className="text-sm text-[#F5F5F5] tracking-[3px] uppercase mb-5">{t('formation.subtitle')}</p>
                     <h2 className="text-4xl md:text-5xl font-light bg-gradient-to-r from-[#FAFAFA] to-[#F5F5F5] bg-clip-text text-transparent">
-                        Formation PIXELLAB
+                        {t('formation.title')}
                     </h2>
                 </div>
                 
@@ -54,7 +56,14 @@ const Exhibitions: React.FC = () => {
                     <div className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-[#B73239] to-transparent -translate-x-1/2" />
                     <div className="relative flex flex-col items-center">
                         {FORMATION_DATA.map((item, index) => (
-                            <TimelineItem key={item.title} {...item} isEven={index % 2 !== 0} index={index} />
+                            <TimelineItem 
+                                key={item.title} 
+                                date={t(`formation.${item.date.toLowerCase()}.date`)}
+                                title={t(`formation.${item.date.toLowerCase()}.title`)}
+                                description={t(`formation.${item.date.toLowerCase()}.desc`)}
+                                isEven={index % 2 !== 0} 
+                                index={index} 
+                            />
                         ))}
                     </div>
                 </div>
